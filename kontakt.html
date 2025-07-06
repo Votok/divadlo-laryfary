@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title>Divadlo Láryfáry - kontakt</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Kontakty na lidi z divadla Láryfáry." />
+    <meta name="keywords" content="dětské divadlo, divadlo pro děti, představení, dětské hry, divadlo Láryfáry, divadlo Ludvík, Strakaté bajky, pohádka, pohádky,dětské představení, Kouzla a čáry tajemné Prahy, pohádka pro děti, pohádky pro děti, herci, herečky, divadlo" />
+    <meta name="author" content="Jan Votoček, votocek@gmail.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Design/Styles/Main.css?a" type="text/css" />
+    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <div id="page">
+        <div id="top">
+            <a href="default.html" title="Úvodní strana"></a>
+        </div>
+        <div id="topBottom"></div>
+        <div id="content">
+            <ul id="menu">
+                <li id="uvod"><a href="default.html" title="Úvodní strana"><span>Úvod</span></a></li>
+                <li id="oNas"><a href="divadlo-laryfary.html" title="Něco o našem divadle"><span>O nás</span></a></li>
+                <li id="repertoar"><a href="hrajeme.html" title="Naše představení"><span>Repertoár</span></a></li>
+                <li id="kontakt"><a href="kontakt.html" title="Spojení na nás"><span>Kontakt</span></a></li>
+                <li id="proPoradatele"><a href="pro-poradatele.html" title="Informace pro pořadatele"><span>Pro pořadatele</span></a></li>
+                <li id="galerie"><a href="galerie.html" title="Fotky a videa z představení"><span>Galerie</span></a></li>
+                <li id="vzkazy"><a href="vzkazy-od-divaku.html" title="Vzkazy od diváků"><span>Vzkazy diváků</span></a></li>
+                <li id="podekovani"><a href="podekovani.html" title="Komu patří náš dík"><span>Poděkování</span></a></li>
+            </ul>
+            <div id="mainContent">
+              <div style="height: 360px; background: url(images/panak.gif) bottom right no-repeat">
+                <h1>Kontakt</h1>
+                <p>
+                  <b>Jarmila Vlčková</b><br/>
+                  e-mail: info@divadlolaryfary.cz<br/>
+                  <br/>
+                  tel.: <span style="font-size: 200%;">608 823 463</span>
+                </p>
+                <h3 class="radiCestujeme">Rádi cestujeme a hrajeme všude tam, kde jsme potřeba!</h3>
+
+              </div>
+            </div>
+          <div class="footer"><div><a href="https://www.facebook.com/Divadlo-Láryfáry-557447910941660" title="Facebook Divadlo Láryfáry" class="fb-icon"></a><a href="https://www.instagram.com/divadlolaryfary" title="Instagram Divadlo Láryfáry" class="insta-icon"></a></div><span></span>Divadlo Láryfáry - testováno na dětech</div>
+        </div>
+        <div id="catBottom"></div>
+    </div>
+    <div id="bottomStrip">
+    </div>
+    <script src="//code.jquery.com/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        RandomColor = function () {
+            // green, yellow, orange, blue, white
+            var colors = ['8bc920', 'ffe22c', 'e37611', '007c86', 'fff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        };
+        $(document).ready(function () {
+            var rndColor = RandomColor();
+            var w = $(window).width();
+            if (w > 680) {
+                $("body").css("background-color", "#" + rndColor);
+                $("#page").css("background-image", "url('Design/Images/bgStrip" + rndColor + ".gif')");
+                $("#top").css("background-image", "url('Design/Images/opona" + rndColor + ".gif')");
+                $("#bottomStrip").css("background-image", "url('Design/Images/bgStripBottom" + rndColor + ".gif')");
+            }
+        });
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-159775-4']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+</html>
