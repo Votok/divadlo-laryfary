@@ -18,8 +18,12 @@
   --header-strip-bg: #ea556f;
   --header-strip-height: 150px;
 
-  /* Banner */
+  /* Banner - responsive heights (less aggressive scaling) */
   --banner-height: 300px;
+  --banner-height-lg: 300px;
+  --banner-height-md: 280px;
+  --banner-height-sm: 250px;
+  --banner-height-xs: 220px;
 
   /* Typography */
   --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -27,7 +31,9 @@
 
   /* Font sizes in rem (px equivalents in comments) */
   --font-size-headline: 4.0625rem; /* 65px */
+  --font-size-headline-mobile: 2.5rem; /* 40px */
   --font-size-secondary-headline: 2.1875rem; /* 35px */
+  --font-size-secondary-headline-mobile: 1.75rem; /* 28px */
   --font-size-body: 1.125rem; /* 18px */
   --font-size-quote: 1.5rem; /* 24px */
   --font-size-navbar-brand: 2rem; /* 32px */
@@ -149,6 +155,7 @@ p,
   margin: 0 auto;
   background: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  container-type: inline-size; /* Enable container queries */
 }
 
 /* Adjust navigation for site wrapper */
@@ -166,22 +173,13 @@ p,
   height: var(--banner-height);
   background-image: url("../images-new/top-banner.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   position: relative;
-  z-index: 1;
-}
-
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: -1;
-  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
 }
 
 /* Hero content section */
@@ -446,17 +444,105 @@ p,
   transform: scale(1.02);
 }
 
-/* Responsive banner behavior */
-@media (max-width: 768px) {
+/* Responsive banner behavior - Full width coverage, allow cropping */
+
+/* Extra large screens - maximum height 300px */
+@media (min-width: 1400px) {
   .hero-banner {
+    height: var(--banner-height-lg);
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
   }
 }
 
-@media (max-width: 576px) {
+/* Large screens - standard size */
+@media (min-width: 1200px) and (max-width: 1399px) {
   .hero-banner {
-    height: calc(var(--banner-height) * 0.8);
+    height: var(--banner-height);
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+/* Medium-large screens - maintain full coverage */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero-banner {
+    height: var(--banner-height);
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+/* Medium screens - tablet landscape */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-banner {
+    height: var(--banner-height-md);
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-headline-mobile);
+  }
+
+  .section-title {
+    font-size: var(--font-size-secondary-headline-mobile);
+  }
+}
+
+/* Small screens - tablet portrait */
+@media (min-width: 576px) and (max-width: 767px) {
+  .hero-banner {
+    height: var(--banner-height-sm);
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-headline-mobile);
+  }
+
+  .section-title {
+    font-size: var(--font-size-secondary-headline-mobile);
+  }
+}
+
+/* Extra small screens - mobile */
+@media (max-width: 575px) {
+  .hero-banner {
+    height: var(--banner-height-xs);
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .hero-title {
+    font-size: calc(var(--font-size-headline-mobile) * 0.9);
+  }
+
+  .section-title {
+    font-size: var(--font-size-secondary-headline-mobile);
+  }
+}
+
+/* Container queries for even more precise control when supported */
+@container (min-width: 1200px) {
+  .hero-banner {
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+@container (max-width: 768px) {
+  .hero-banner {
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+@container (max-width: 480px) {
+  .hero-banner {
+    background-size: cover;
+    background-position: center top;
   }
 }
 
