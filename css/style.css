@@ -13,6 +13,13 @@
   --danger-color: #dc3545;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
+  
+  /* Header strip colors */
+  --header-strip-bg: #EA556F;
+  --header-strip-height: 150px;
+  
+  /* Banner */
+  --banner-height: 300px;
 
   /* Typography */
   --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -20,7 +27,7 @@
 
   /* Spacing */
   --section-padding: 5rem 0;
-  --container-max-width: 1200px;
+  --container-max-width: 1440px;
 
   /* Transitions */
   --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,6 +57,66 @@ body {
   line-height: 1.6;
   color: var(--dark-color);
   overflow-x: hidden;
+}
+
+/* Site wrapper for max width constraint */
+.site-wrapper {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  position: relative;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust navigation for site wrapper */
+.navbar {
+  background-color: var(--header-strip-bg) !important;
+  height: var(--header-strip-height);
+  transition: var(--transition-base);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust hero banner for site wrapper */
+.hero-banner {
+  height: var(--banner-height);
+  background-image: url('../images-new/top-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* Hero content section */
+.hero-content {
+  padding: 2rem 0;
+  background: white;
+}
+
+.hero-content .hero-title .text-primary {
+  color: var(--primary-color) !important;
+}
+
+.hero-content .hero-title .text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+/* Main content area */
+.main-content {
+  position: relative;
+  z-index: 1;
+  background: white;
 }
 
 .container {
@@ -91,82 +158,88 @@ body {
    NAVIGATION
    ========================================== */
 
-.navbar {
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  transition: var(--transition-base);
+.navbar .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
 }
 
 .navbar-brand {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: var(--primary-color) !important;
+  color: white !important;
+  margin-bottom: 1rem;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .navbar-nav .nav-link {
   font-weight: 500;
-  padding: 0.75rem 1rem !important;
-  color: var(--dark-color) !important;
+  padding: 0.5rem 1rem !important;
+  color: white !important;
   transition: var(--transition-fast);
   position: relative;
+  border-radius: var(--border-radius-sm);
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: var(--primary-color) !important;
-}
-
-.navbar-nav .nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: var(--transition-base);
-  transform: translateX(-50%);
-}
-
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after {
-  width: 80%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white !important;
 }
 
 .navbar-toggler {
-  border: none !important;
+  border: 2px solid white !important;
   padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-toggler:focus {
-  box-shadow: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile navigation */
+@media (max-width: 991.98px) {
+  .navbar .container {
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
+  
+  .navbar-brand {
+    align-self: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .navbar-nav .nav-link {
+    text-align: center;
+    width: 100%;
+  }
 }
 
 /* ==========================================
    HERO SECTION
    ========================================== */
-
-.hero-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 6rem 0;
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("https://picsum.photos/1920/1080?random=hero") center/cover;
-  opacity: 0.1;
-  z-index: 1;
-}
-
-.hero-banner .container {
-  z-index: 2;
-}
 
 .hero-title {
   font-family: var(--font-display);
@@ -175,11 +248,11 @@ body {
   margin-bottom: 2rem;
 }
 
-.hero-title .text-primary {
+.hero-title .text-white {
   color: white !important;
 }
 
-.hero-title .text-secondary {
+.hero-title .text-light {
   color: rgba(255, 255, 255, 0.8) !important;
   font-size: 0.8em;
 }
@@ -204,6 +277,20 @@ body {
 
 .hero-images img:hover {
   transform: scale(1.02);
+}
+
+/* Responsive banner behavior */
+@media (max-width: 768px) {
+  .hero-banner {
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-banner {
+    height: calc(var(--banner-height) * 0.8);
+  }
 }
 
 /* ==========================================
@@ -402,6 +489,19 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+.btn-outline-light {
+  border-color: white;
+  color: white;
+}
+
+.btn-outline-light:hover {
+  background: white;
+  border-color: white;
+  color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
 /* ==========================================
    ANIMATIONS
    ========================================== */
@@ -460,10 +560,6 @@ body {
 
 /* Tablet */
 @media (min-width: 768px) {
-  .hero-banner {
-    padding: 8rem 0;
-  }
-
   .section-title {
     font-size: 2.5rem;
   }
@@ -475,10 +571,6 @@ body {
 
 /* Desktop */
 @media (min-width: 992px) {
-  .hero-banner {
-    padding: 10rem 0;
-  }
-
   .hero-title {
     font-size: 3.5rem;
   }
