@@ -1126,7 +1126,7 @@ p,
 .footer-circle {
   width: 416px;
   height: 416px;
-  background-image: url('../images-new/kolecko-footer.jpg');
+  background-image: url("../images-new/kolecko-footer.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -1214,7 +1214,7 @@ p,
     width: 48%;
     max-width: 520px;
   }
-  
+
   .footer-content {
     max-width: 55%;
     padding: 0 2rem 0 3rem;
@@ -1285,7 +1285,7 @@ p,
     position: relative;
     width: 70%;
     max-width: none;
-    align-self: center;
+    align-self: flex-end;
     margin-top: 1rem;
   }
 }
@@ -1334,6 +1334,7 @@ p,
 
   .footer-character {
     width: 60%;
+    align-self: flex-end;
   }
 }
 
@@ -1341,8 +1342,9 @@ p,
 @media (max-width: 480px) {
   .footer-character {
     width: 55%;
+    align-self: flex-end;
   }
-  
+
   .custom-footer {
     min-height: 400px;
   }
