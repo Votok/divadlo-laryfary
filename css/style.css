@@ -5,8 +5,8 @@
 
 /* CSS Custom Properties (Variables) */
 :root {
-  --primary-color: #e91e63;
-  --secondary-color: #6c757d;
+  --primary-color: #e93578;
+  --secondary-color: #008db1;
   --accent-color: #00bcd4;
   --success-color: #28a745;
   --warning-color: #ffc107;
@@ -63,7 +63,6 @@ body {
 .site-wrapper {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  position: relative;
   background: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -119,8 +118,6 @@ body {
 
 /* Main content area */
 .main-content {
-  position: relative;
-  z-index: 10;
   background: white;
 }
 
@@ -218,7 +215,6 @@ body {
   padding: 0.5rem 1rem !important;
   color: white !important;
   transition: var(--transition-fast);
-  position: relative;
   border-radius: var(--border-radius-sm);
 }
 
