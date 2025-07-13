@@ -108,6 +108,11 @@ body {
   z-index: 10;
 }
 
+/* When hero-content is within main-content, ensure proper spacing */
+.main-content .hero-content {
+  padding: 3rem 0;
+}
+
 .hero-content .hero-title .text-primary {
   color: var(--primary-color) !important;
 }
