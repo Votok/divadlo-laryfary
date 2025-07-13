@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divadlo Láryfáry - představení pro děti</title>
+    <meta
+      name="description"
+      content="Divadlo Láryfáry - jsme pražské profesionální autorské divadlo, v současné době zaměřené především na dětského diváka."
+    />
+    <meta
+      name="keywords"
+      content="dětské divadlo, divadlo pro děti, představení, dětské hry, divadlo Láryfáry, pohádka, pohádky, dětské představení"
+    />
+    <meta name="author" content="Jan Votoček" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="index.html"> Divadlo Láryfáry </a>
+
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Úvod</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="divadlo-laryfary.html">O nás</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hrajeme.html">Repertoár</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="galerie.html">Galerie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontakt.html">Kontakt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pro-poradatele.html">Pro pořadatele</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner position-relative overflow-hidden">
+      <div class="hero-bg"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center min-vh-75">
+          <div class="col-lg-6">
+            <h1 class="hero-title display-4 fw-bold mb-4">
+              <span class="text-primary">Jsme pražské profesionální divadlo pro děti</span>
+              <br />
+              <span class="text-secondary">Od roku 2008 děláme svět veselejší</span>
+            </h1>
+            <p class="lead mb-4">
+              Děti, vemte rodiče a prarodiče a přijďte na originální představení Divadla Láryfáry.
+            </p>
+            <div class="hero-actions">
+              <a href="hrajeme.html" class="btn btn-primary btn-lg me-3 mb-2">Aktuální program</a>
+              <a href="kontakt.html" class="btn btn-outline-primary btn-lg mb-2">Kontakt</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-images">
+              <img
+                src="https://picsum.photos/400/300?random=1"
+                alt="Divadlo Láryfáry"
+                class="img-fluid rounded shadow"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4">
+            <img
+              src="https://picsum.photos/350/400?random=2"
+              alt="O nás"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+          <div class="col-lg-8">
+            <div class="content-box p-4">
+              <h2 class="section-title mb-4">Pojďte s námi objevit svět divadla</h2>
+              <p class="lead">
+                Uvidíte, že zajíc je pomalejší než želva, flašinetářky mívají zelené uši, raraši
+                nekamarádí s prasaty, námořníci hoří láskou k mořským pannám a hlavně, že na nádraží
+                straší…
+              </p>
+              <p>Ale nebojte se, jak už to bývá, všechno-špatně-dopadne!</p>
+              <div class="highlight-box mt-4 p-3">
+                <h5 class="text-primary mb-2">
+                  Rádi cestujeme a hrajeme všude tam, kde jsme potřeba!
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Shows Section -->
+    <section class="shows-section py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="section-title mb-4">Zveme vás na:</h2>
+
+            <div class="show-card mb-4">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <h5 class="card-title text-primary">Pohádka "O Kačence a Raráškovi"</h5>
+                  <div class="show-dates">
+                    <div class="date-item">16.3. v 15:00 - KC - Nové Strašecí</div>
+                    <div class="date-item">29.3. v 10:00 - Komorní divadlo Kalich - Praha</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="show-card mb-4">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <h5 class="card-title text-primary">Pohádka - „Strakaté bajky"</h5>
+                  <div class="show-dates">
+                    <div class="date-item">15.2. v 10:00 - Divadlo Viola - Praha</div>
+                    <div class="date-item">23.4. v 10:00 - Kino Lípa - Duchcov</div>
+                    <div class="date-item">13.5. v 10:00 - Knihovna - Meziboří</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="show-card mb-4">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <h5 class="card-title text-primary">Pohádka „Kouzla a čáry tajemné Prahy"</h5>
+                  <div class="show-dates">
+                    <div class="date-item">20.1. v 8:30 a 10:00 - Divadlo - Jablonec</div>
+                    <div class="date-item">25.1. v 10:00 - Divadlo Viola - Praha</div>
+                    <div class="date-item">15.3. v 10:00 - Komorní divadlo Kalich - Praha</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar-content">
+              <div class="featured-image mb-4">
+                <img
+                  src="https://picsum.photos/300/400?random=3"
+                  alt="Pohádka"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+
+              <div class="quote-box p-4 mb-4">
+                <blockquote class="blockquote text-center">
+                  <p class="mb-0">
+                    "Divadlo je místem, kde se děti učí snít a kde se sny stávají skutečností."
+                  </p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Show Section -->
+    <section class="featured-show py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="featured-content">
+              <h2 class="section-title mb-4">Ene bene Erbene</h2>
+              <p class="lead">
+                Pozor, pozor! Bude šrumec! Přijelo k vám DÍVADLO, které si pro vás připravilo
+                spoustu krásných pohádek. A všechny budou od Karla Jaromíra Erbena!
+              </p>
+              <p>
+                A to ještě netušíte, že si s sebou herci přivezli starou kouzelnou knihu, ze které
+                si společně s dětmi přivolají samotného pana ERBENA...
+              </p>
+              <a href="hrajeme.html#pohadkaENE" class="btn btn-primary">Více o představení</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="https://picsum.photos/500/350?random=4"
+              alt="Ene bene Erbene"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="gallery-preview py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">Naše představení</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="gallery-item">
+              <img
+                src="https://picsum.photos/350/250?random=5"
+                alt="Představení 1"
+                class="img-fluid rounded shadow"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-item">
+              <img
+                src="https://picsum.photos/350/250?random=6"
+                alt="Představení 2"
+                class="img-fluid rounded shadow"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-item">
+              <img
+                src="https://picsum.photos/350/250?random=7"
+                alt="Představení 3"
+                class="img-fluid rounded shadow"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="galerie.html" class="btn btn-outline-primary">Zobrazit všechny fotografie</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social-section py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <div class="social-content d-flex align-items-center">
+              <div class="social-avatar me-3">
+                <img
+                  src="https://picsum.photos/80/80?random=8"
+                  alt="Social"
+                  class="rounded-circle"
+                />
+              </div>
+              <div>
+                <h5 class="mb-1">Ať jsme kamarádi i online</h5>
+                <p class="mb-0 text-muted">info@divadlolaryfary.cz</p>
+                <p class="mb-0 text-muted">608 823 463</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/Divadlo-Láryfáry-557447910941660"
+                class="btn btn-outline-primary me-2"
+                title="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/divadlolaryfary"
+                class="btn btn-outline-primary"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h5>Divadlo Láryfáry</h5>
+            <p class="mb-0">Testováno na dětech</p>
+          </div>
+          <div class="col-lg-6 text-lg-end">
+            <p class="mb-0">&copy; 2025 Divadlo Láryfáry. Všechna práva vyhrazena.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+  </body>
+</html>
