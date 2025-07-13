@@ -30,6 +30,11 @@
   --font-size-secondary-headline: 2.1875rem; /* 35px */
   --font-size-body: 1.125rem; /* 18px */
   --font-size-quote: 1.5rem; /* 24px */
+  --font-size-navbar-brand: 2rem; /* 32px */
+  --font-size-navbar-brand-mobile: 1.5rem; /* 24px */
+  --font-size-small: 0.9rem; /* 14.4px */
+  --font-size-quote-symbol: 4rem; /* 64px */
+  --font-size-light-text: 0.8em; /* relative to parent */
 
   /* Spacing */
   --section-padding: 5rem 0;
@@ -100,6 +105,19 @@ p,
 .blockquote p {
   font-size: var(--font-size-quote);
   line-height: 1.4;
+}
+
+.small-text,
+.text-small {
+  font-size: var(--font-size-small);
+}
+
+.brand-text {
+  font-size: var(--font-size-navbar-brand);
+}
+
+.light-text {
+  font-size: var(--font-size-light-text);
 }
 
 /* Site wrapper for max width constraint */
@@ -230,7 +248,7 @@ p,
 
 .navbar-brand {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: var(--font-size-navbar-brand);
   font-weight: 700;
   color: white !important;
   margin-bottom: 1rem;
@@ -287,7 +305,7 @@ p,
   }
 
   .navbar-brand {
-    font-size: 1.5rem;
+    font-size: var(--font-size-navbar-brand-mobile);
     margin-bottom: 0.5rem;
   }
 
@@ -341,7 +359,7 @@ p,
 
 .hero-title .text-light {
   color: rgba(255, 255, 255, 0.8) !important;
-  font-size: 0.8em;
+  font-size: var(--font-size-light-text);
 }
 
 .hero-actions .btn {
@@ -516,7 +534,7 @@ p,
   padding: 0.5rem 0.75rem;
   margin: 0.25rem 0;
   border-radius: var(--border-radius-sm);
-  font-size: 0.9rem;
+  font-size: var(--font-size-small);
   color: var(--secondary-color);
   border-left: 3px solid var(--accent-color);
 }
@@ -538,7 +556,7 @@ p,
   position: absolute;
   top: -10px;
   left: 20px;
-  font-size: 4rem;
+  font-size: var(--font-size-quote-symbol);
   opacity: 0.3;
   font-family: var(--font-display);
 }
