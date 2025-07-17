@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if title %}{{ title }} - {% endif %}Divadlo Láryfáry</title>
+    <meta name="description" content="{{ description or 'Divadlo Láryfáry - jsme pražské profesionální autorské divadlo, v současné době zaměřené především na dětského diváka.' }}" />
+    <meta name="keywords" content="{{ keywords or 'dětské divadlo, divadlo pro děti, představení, dětské hry, divadlo Láryfáry, pohádka, pohádky, dětské představení' }}" />
+    <meta name="author" content="Jan Votoček" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      {% include "components/header.njk" %}
+      
+      {% if showHeroBanner %}
+      <!-- Hero Banner -->
+      <section class="hero-banner"></section>
+      {% endif %}
+      
+      <main class="main-content">
+        {{ content | safe }}
+      </main>
+
+      {% include "components/footer.njk" %}
+
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      
+      <!-- Font Awesome -->
+      <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    </div>
+  </body>
+</html>

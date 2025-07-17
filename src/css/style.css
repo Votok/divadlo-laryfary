@@ -171,7 +171,7 @@ p,
 /* Adjust hero banner for site wrapper */
 .hero-banner {
   height: var(--banner-height);
-  background-image: url("../images-new/top-banner.jpg");
+  background-image: url("../images/top-banner.jpg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -1265,7 +1265,7 @@ p,
 .footer-circle {
   width: 416px;
   height: 416px;
-  background-image: url("../images-new/kolecko-footer.jpg");
+  background-image: url("../images/kolecko-footer.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
