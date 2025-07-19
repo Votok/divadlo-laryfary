@@ -18,22 +18,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link{% if page.url == '/' %} active{% endif %}" href="/">Úvod</a>
+          <a class="nav-link{% if '/program/' in page.url %} active{% endif %}" href="/program/">Program</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{% if '/divadlo-laryfary/' in page.url %} active{% endif %}" href="/divadlo-laryfary/">O nás</a>
+          <a class="nav-link{% if '/repertoar/' in page.url %} active{% endif %}" href="/repertoar/">Repertoár</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{% if '/hrajeme/' in page.url %} active{% endif %}" href="/hrajeme/">Repertoár</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link{% if '/galerie/' in page.url %} active{% endif %}" href="/galerie/">Galerie</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link{% if '/kontakt/' in page.url %} active{% endif %}" href="/kontakt/">Kontakt</a>
+          <a class="nav-link{% if '/herci/' in page.url %} active{% endif %}" href="/herci/">Herci</a>
         </li>
         <li class="nav-item">
           <a class="nav-link{% if '/pro-poradatele/' in page.url %} active{% endif %}" href="/pro-poradatele/">Pro pořadatele</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link{% if '/nase-knihy/' in page.url %} active{% endif %}" href="/nase-knihy/">Naše knihy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link{% if '/besedy/' in page.url %} active{% endif %}" href="/besedy/">Besedy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link{% if '/kontakt/' in page.url %} active{% endif %}" href="/kontakt/">Kontakt</a>
         </li>
       </ul>
     </div>
