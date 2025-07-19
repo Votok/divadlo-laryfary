@@ -39,52 +39,14 @@ footerCharacterImage: images/indiani-zluta.png
   </div>
 </section>
 
-<!-- Promote Section -->
-<section class="promote-section py-5">
-  <div class="container-fluid p-0">
-    <div class="row g-0 align-items-stretch">
-      <div class="col-lg-6">
-        <div class="promote-image">
-          <img
-            src="images/apolenka-modra.jpg"
-            alt="Divadlo Láryfáry"
-            class="img-fluid h-100 w-100"
-            style="object-fit: cover"
-          />
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="promote-content d-flex flex-column h-100">
-          <div class="content-box p-5 flex-grow-1 d-flex flex-column justify-content-center">
-            <h2 class="section-title mb-4">Pojďte s námi objevit kouzelný svět divadla</h2>
-            <p class="mb-3">Děti, popadněte rodiče, strejdy, tety - a hurá za námi do divadla!</p>
-            <p class="mb-4">
-              Pobavíte se, zasmějete a domů si odnesete víc než jen bonbon z bufetu.
-            </p>
-            <div class="promote-actions">
-              <a href="hrajeme.html" class="btn btn-primary btn-lg me-3 mb-2">Aktuální program</a>
-              <a href="kontakt.html" class="btn btn-outline-primary btn-lg mb-2">Kontakt</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Quote strip spanning full width -->
-    <div class="row g-0">
-      <div class="col-12">
-        <div class="quote-box">
-          <blockquote class="blockquote text-center mb-0">
-            <p class="mb-0">
-              Je vidět, že hrát pro děti vás hodně baví. Takhle spokojení jsme z divadla ještě
-              neodcházeli. A navíc jsme Máje pořídili knížku s věnováním - nosí ji do školy místo
-              plyšáka.
-            </p>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% include "components/promote-section.njk", promoteImage: "images/apolenka-modra.jpg",
+promoteImageAlt: "Divadlo Láryfáry", promoteTitle: "Pojďte s námi objevit kouzelný svět divadla",
+promoteText: '
+<p class="mb-3">Děti, popadněte rodiče, strejdy, tety - a hurá za námi do divadla!</p>
+<p class="mb-4">Pobavíte se, zasmějete a domů si odnesete víc než jen bonbon z bufetu.</p>
+', promoteActions: true, quoteText: "Je vidět, že hrát pro děti vás hodně baví. Takhle spokojení
+jsme z divadla ještě neodcházeli. A navíc jsme Máje pořídili knížku s věnováním - nosí ji do školy
+místo plyšáka." %}
 
 <!-- Featured Show Section -->
 <!-- <section class="featured-show py-5">
