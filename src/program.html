@@ -9,79 +9,9 @@ breadcrumbs:
   - title: "Úvod"
     url: "/"
   - title: "Program"
+footerCharacterImage: images/program-footer-character.jpg
 # Custom CSS variables for this page
 ---
-
-<!-- Custom CSS for this page -->
-<style>
-  /* Using default colors for this page */
-  :root {
-    --page-headline-color: #e93578; /* Pink */
-    --page-subheadline-color: #008db1; /* Blue */
-  }
-
-  .performance-strip {
-    background: #f8f9fa;
-    border-left: 4px solid #e93578;
-    margin-bottom: 1rem;
-    border-radius: 0.375rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .performance-strip:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .performance-date {
-    font-weight: 600;
-    color: #495057;
-    font-size: 0.95rem;
-  }
-
-  .performance-title {
-    font-weight: 700;
-    color: #212529;
-    margin-bottom: 0.25rem;
-  }
-
-  .performance-venue {
-    color: #6c757d;
-    font-size: 0.9rem;
-    margin-bottom: 0;
-  }
-
-  .btn-tickets {
-    background-color: #e93578;
-    border-color: #e93578;
-    color: white;
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s ease;
-  }
-
-  .btn-tickets:hover {
-    background-color: #d02860;
-    border-color: #d02860;
-    color: white;
-    transform: translateY(-1px);
-  }
-
-  .month-section {
-    margin-bottom: 3rem;
-  }
-
-  .month-title {
-    color: #008db1;
-    border-bottom: 3px solid #e93578;
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    display: inline-block;
-  }
-</style>
 
 <!-- Subpage Header -->
 <section class="subpage-header py-5">
@@ -94,7 +24,7 @@ breadcrumbs:
 
 <!-- Main Content -->
 <section class="py-5">
-  <div class="container">
+  <div class="container subpage-content-padding">
     <div class="row">
       <!-- Main Content Area (limited width for text readability) -->
       <div class="col-lg-8">
@@ -111,9 +41,9 @@ breadcrumbs:
   </div>
 </section>
 
-<!-- Program Schedule - Full Width -->
+<!-- Program Schedule - Full Width with Performance Strips Padding -->
 <section class="py-5">
-  <div class="container-fluid">
+  <div class="container-fluid performance-strip-container">
     <div class="row">
       <div class="col-12">
         <div class="program-schedule">
@@ -327,48 +257,49 @@ breadcrumbs:
               </div>
             </div>
           </div>
-
-          <!-- Quote Section with Image -->
-          <div class="container-fluid p-0 my-5">
-            <div class="row g-0 align-items-stretch">
-              <div class="col-lg-6">
-                <div class="promote-image">
-                  <img
-                    src="images/program-quote.jpg"
-                    alt="Divadlo Láryfáry - Program"
-                    class="img-fluid h-100 w-100"
-                    style="object-fit: cover"
-                  />
+          <!-- Quote Section with Image - Full Width, No Padding -->
+          <section class="py-5">
+            <div class="container-fluid p-0 my-5">
+              <div class="row g-0 align-items-stretch">
+                <div class="col-lg-6">
+                  <div class="promote-image">
+                    <img
+                      src="images/program-quote.jpg"
+                      alt="Divadlo Láryfáry - Program"
+                      class="img-fluid h-100 w-100"
+                      style="object-fit: cover"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="promote-content d-flex flex-column h-100">
+                    <div
+                      class="content-box p-5 flex-grow-1 d-flex flex-column justify-content-center"
+                    >
+                      <!-- Empty content area to match the layout structure -->
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <div class="promote-content d-flex flex-column h-100">
-                  <div
-                    class="content-box p-5 flex-grow-1 d-flex flex-column justify-content-center"
-                  >
-                    <!-- Empty content area to match the layout structure -->
+              <!-- Quote strip spanning full width -->
+              <div class="row g-0">
+                <div class="col-12">
+                  <div class="quote-box">
+                    <blockquote class="blockquote text-center mb-0">
+                      <p class="mb-0">
+                        Líbí se nám, že jste vtipní pro děti i pro rodiče. Konečně pohádka, u které
+                        jsme nemuseli koukat do mobilu.
+                      </p>
+                    </blockquote>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Quote strip spanning full width -->
-            <div class="row g-0">
-              <div class="col-12">
-                <div class="quote-box" style="border-radius: 0">
-                  <blockquote class="blockquote text-center mb-0">
-                    <p class="mb-0">
-                      Líbí se nám, že jste vtipní pro děti i pro rodiče. Konečně pohádka, u které
-                      jsme nemuseli koukat do mobilu.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
+          </section>
 
           <!-- Performance Images -->
           <section class="performance-images py-5">
-            <div class="container">
+            <div class="container-fluid performance-images">
               <div class="row g-4">
                 <div class="col-md-6">
                   <div class="performance-image-item">
@@ -393,22 +324,30 @@ breadcrumbs:
           </section>
 
           <!-- Contact Section -->
-          <div class="highlight-box p-4 mt-5">
-            <h3 class="mb-3">Pořádáte akci a máte zájem o naše představení?</h3>
-            <p class="mb-3">
-              Rádi přijedeme za vámi! Kontaktujte nás pro domluvu termínu a podrobností.
-            </p>
-            <div class="row">
-              <div class="col-md-6">
-                <a href="/kontakt.html" class="btn btn-primary me-3">Kontaktujte nás</a>
-              </div>
-              <div class="col-md-6">
-                <a href="/pro-poradatele.html" class="btn btn-outline-primary"
-                  >Informace pro pořadatele</a
-                >
+          <section class="py-5">
+            <div class="container subpage-content-padding">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="highlight-box p-4">
+                    <h3 class="mb-3">Pořádáte akci a máte zájem o naše představení?</h3>
+                    <p class="mb-3">
+                      Rádi přijedeme za vámi! Kontaktujte nás pro domluvu termínu a podrobností.
+                    </p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a href="/kontakt.html" class="btn btn-primary me-3">Kontaktujte nás</a>
+                      </div>
+                      <div class="col-md-6">
+                        <a href="/pro-poradatele.html" class="btn btn-outline-primary"
+                          >Informace pro pořadatele</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>

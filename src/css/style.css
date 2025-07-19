@@ -18,6 +18,18 @@
   --page-headline-color: var(--primary-color); /* Pink/red fallback */
   --page-subheadline-color: var(--secondary-color); /* Blue fallback */
 
+  /* Performance schedule colors */
+  --performance-strip-bg: #f8f9fa;
+  --performance-strip-border: var(--primary-color);
+  --performance-strip-hover-shadow: rgba(0, 0, 0, 0.1);
+  --performance-date-color: #495057;
+  --performance-title-color: #212529;
+  --performance-venue-color: #6c757d;
+  --performance-tickets-bg: var(--primary-color);
+  --performance-tickets-hover-bg: #d02860;
+  --month-title-color: var(--secondary-color);
+  --month-title-border: var(--primary-color);
+
   /* Header strip colors */
   --header-strip-bg: #ea556f;
   --header-strip-height: 150px;
@@ -32,6 +44,10 @@
   /* Typography */
   --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
+  --font-performance-title: var(--font-display);
+  --font-performance-venue: var(--font-primary);
+  --font-performance-date: var(--font-primary);
+  --font-month-title: var(--font-display);
 
   /* Font sizes in rem (px equivalents in comments) */
   --font-size-headline: 4.0625rem; /* 65px */
@@ -45,6 +61,9 @@
   --font-size-small: 0.9rem; /* 14.4px */
   --font-size-quote-symbol: 4rem; /* 64px */
   --font-size-light-text: 0.8em; /* relative to parent */
+  --font-size-performance-date: 0.95rem; /* 15.2px */
+  --font-size-performance-venue: 0.9rem; /* 14.4px */
+  --font-size-tickets-btn: 0.875rem; /* 14px */
 
   /* Spacing */
   --section-padding: 5rem 0;
@@ -1098,6 +1117,56 @@ p,
   padding: 3rem 0;
 }
 
+/* Subpage content padding - responsive gutters */
+.subpage-content-padding {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+/* Performance strips and images should share the same space as content */
+.performance-strip-container,
+.performance-images {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 1200px) {
+  .subpage-content-padding,
+  .performance-strip-container,
+  .performance-images {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .subpage-content-padding,
+  .performance-strip-container,
+  .performance-images {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .subpage-content-padding,
+  .performance-strip-container,
+  .performance-images {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .subpage-content-padding,
+  .performance-strip-container,
+  .performance-images {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .subpage-header .hero-title {
   font-family: var(--font-display);
 }
@@ -1352,13 +1421,88 @@ p,
 }
 
 /* ==========================================
+   PERFORMANCE SCHEDULE STYLES
+   ========================================== */
+
+.performance-strip {
+  background: var(--performance-strip-bg);
+  border-left: 4px solid var(--performance-strip-border);
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-base);
+}
+
+.performance-strip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--performance-strip-hover-shadow);
+}
+
+.performance-date {
+  font-family: var(--font-performance-date);
+  font-weight: 600;
+  color: var(--performance-date-color);
+  font-size: var(--font-size-performance-date);
+}
+
+.performance-title {
+  font-family: var(--font-performance-title);
+  font-weight: 700;
+  color: var(--performance-title-color);
+  margin-bottom: 0.25rem;
+}
+
+.performance-venue {
+  font-family: var(--font-performance-venue);
+  color: var(--performance-venue-color);
+  font-size: var(--font-size-performance-venue);
+  margin-bottom: 0;
+}
+
+.btn-tickets {
+  background-color: var(--performance-tickets-bg);
+  border-color: var(--performance-tickets-bg);
+  color: white;
+  font-size: var(--font-size-tickets-btn);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition-base);
+}
+
+.btn-tickets:hover {
+  background-color: var(--performance-tickets-hover-bg);
+  border-color: var(--performance-tickets-hover-bg);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.month-section {
+  margin-bottom: 3rem;
+}
+
+.month-title {
+  font-family: var(--font-month-title);
+  color: var(--month-title-color);
+  border-bottom: 3px solid var(--month-title-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+/* Special quote box styles for program page */
+.container-fluid .quote-box {
+  border-radius: 0;
+}
+
+/* ==========================================
    CUSTOM FOOTER STYLES
    ========================================== */
 
 .custom-footer {
   position: relative;
   background: white;
-  padding: 5rem 0 3rem 0;
+  padding: 5rem 0 0 0;
   min-height: 850px;
   overflow: hidden;
   display: flex;
@@ -1488,13 +1632,13 @@ p,
 
   .custom-footer {
     min-height: 780px;
-    padding: 4rem 0 3rem 0;
+    padding: 4rem 00 0;
   }
 }
 
 @media (max-width: 768px) {
   .custom-footer {
-    padding: 3rem 0 2rem 0;
+    padding: 3rem 0 0 0;
     min-height: 650px;
     flex-direction: column;
     align-items: flex-start;
@@ -1550,7 +1694,7 @@ p,
 
 @media (max-width: 576px) {
   .custom-footer {
-    padding: 2rem 0 1.5rem 0;
+    padding: 2rem 0 0 0;
     min-height: 580px;
   }
 
@@ -1605,7 +1749,7 @@ p,
 
   .custom-footer {
     min-height: 540px;
-    padding: 2rem 0 1.5rem 0;
+    padding: 2rem 0 0 0;
   }
 
   .footer-circle {
