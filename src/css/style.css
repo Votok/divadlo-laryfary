@@ -1117,51 +1117,36 @@ p,
   padding: 3rem 0;
 }
 
-/* Subpage content padding - responsive gutters */
-.subpage-content-padding {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
-/* Performance strips and images should share the same space as content */
-.performance-strip-container,
-.performance-images {
+/* Subpage content gutter - responsive side padding for content blocks */
+.content-gutter {
   padding-left: 4rem;
   padding-right: 4rem;
 }
 
 /* Responsive padding adjustments */
 @media (max-width: 1200px) {
-  .subpage-content-padding,
-  .performance-strip-container,
-  .performance-images {
+  .content-gutter {
     padding-left: 3rem;
     padding-right: 3rem;
   }
 }
 
 @media (max-width: 992px) {
-  .subpage-content-padding,
-  .performance-strip-container,
-  .performance-images {
+  .content-gutter {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .subpage-content-padding,
-  .performance-strip-container,
-  .performance-images {
+  .content-gutter {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
-  .subpage-content-padding,
-  .performance-strip-container,
-  .performance-images {
+  .content-gutter {
     padding-left: 1rem;
     padding-right: 1rem;
   }
