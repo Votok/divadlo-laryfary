@@ -1,0 +1,23 @@
+<!-- Subpage Header Component -->
+{% if breadcrumbs %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {% for crumb in breadcrumbs %}
+    <li class="breadcrumb-item{% if loop.last %} active{% endif %}"{% if loop.last %} aria-current="page"{% endif %}>
+      {% if crumb.url and not loop.last %}
+        <a href="{{ crumb.url }}" class="text-decoration-none">{{ crumb.title }}</a>
+      {% else %}
+        {{ crumb.title }}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}
+<h1 class="hero-title display-4 fw-bold mb-4">
+  <span class="title-primary">{{ pageTitle or title }}</span>
+  {% if subtitle %}
+  <br />
+  <span class="title-secondary">{{ subtitle }}</span>
+  {% endif %}
+</h1>

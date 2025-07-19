@@ -14,6 +14,10 @@
   --light-color: #f8f9fa;
   --dark-color: #343a40;
 
+  /* Page headline colors (customizable per page with fallbacks) */
+  --page-headline-color: var(--primary-color); /* Pink/red fallback */
+  --page-subheadline-color: var(--secondary-color); /* Blue fallback */
+
   /* Header strip colors */
   --header-strip-bg: #ea556f;
   --header-strip-height: 150px;
@@ -1090,6 +1094,50 @@ p,
    SUBPAGE STYLES
    ========================================== */
 
+.subpage-header {
+  padding: 3rem 0;
+}
+
+.subpage-header .hero-title {
+  font-family: var(--font-display);
+}
+
+.subpage-header .title-primary {
+  color: var(--page-headline-color);
+  font-size: var(--font-size-headline);
+}
+
+.subpage-header .title-secondary {
+  color: var(--page-subheadline-color);
+  font-size: var(--font-size-secondary-headline);
+}
+
+.subpage-header .hero-images img {
+  max-width: 100%;
+  height: auto;
+  transition: var(--transition-base);
+}
+
+.subpage-header .hero-images img:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments for subpage header */
+@media (max-width: 991.98px) {
+  .subpage-header .title-primary {
+    font-size: var(--font-size-headline-mobile);
+  }
+
+  .subpage-header .title-secondary {
+    font-size: var(--font-size-secondary-headline-mobile);
+  }
+
+  .subpage-header .hero-images {
+    margin-top: 2rem;
+    text-align: center !important;
+  }
+}
+
 .page-header {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -1097,7 +1145,12 @@ p,
 
 .page-title {
   font-family: var(--font-display);
-  color: var(--primary-color);
+  color: var(--page-headline-color);
+}
+
+.page-subtitle,
+.page-header .lead {
+  color: var(--page-subheadline-color);
 }
 
 .breadcrumb {

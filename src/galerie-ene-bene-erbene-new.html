@@ -1,10 +1,9 @@
 ---
-layout: layouts/subpage.njk
+layout: layouts/subpage-clean.njk
 title: "Pohádka Ene bene Erbene"
 description: "Pohádka Ene bene Erbene inspirovaná životem a dílem Karla Jaromíra Erbena. Divadlo Láryfáry uvádí novou rodinnou pohádku."
 keywords: "pohádka, Erben, dětské představení, divadlo pro děti"
 permalink: "/galerie-ene-bene-erbene-new.html"
-showPageHeader: true
 pageTitle: "Pohádka Ene bene Erbene"
 subtitle: "Pohádka inspirovaná životem a dílem Karla Jaromíra Erbena"
 breadcrumbs:
@@ -17,6 +16,24 @@ headerImage:
   src: "https://picsum.photos/200/200?random=erben"
   alt: "Karel Jaromír Erben"
 ---
+
+<!-- Subpage Header -->
+<section class="subpage-header py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">{% include "components/subpage-header.njk" %}</div>
+      {% if headerImage %}
+      <div class="col-lg-4 text-lg-end">
+        <img
+          src="{{ headerImage.src }}"
+          alt="{{ headerImage.alt }}"
+          class="img-fluid rounded shadow hero-images"
+        />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 
 <!-- Main Content -->
 <section class="py-5">
