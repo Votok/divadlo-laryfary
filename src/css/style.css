@@ -581,16 +581,28 @@ p,
   padding: var(--section-padding);
 }
 
-/* Promote Section Specific Styles */
-.promote-section {
+/* ==========================================
+   PROMOTE SECTION - FLEXIBLE REUSABLE
+   ========================================== */
+
+/* Main promote section wrapper */
+.promote-section-wrapper {
   padding: 0; /* Override default section padding */
 }
 
+/* Image styling */
 .promote-image {
   position: relative;
   min-height: 400px;
 }
 
+.promote-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content styling */
 .promote-content {
   background: white;
   min-height: 400px;
@@ -602,12 +614,13 @@ p,
   box-shadow: none;
 }
 
-.promote-content .quote-box,
-.promote-section .quote-box {
+/* Quote box seamless connection */
+.promote-section-wrapper .quote-box {
   margin: 0;
-  border-radius: 0;
+  border-radius: 0; /* No border radius for seamless connection */
 }
 
+/* Promote actions styling */
 .promote-actions .btn {
   padding: 0.875rem 2rem;
   font-weight: 600;
@@ -621,37 +634,17 @@ p,
   box-shadow: var(--shadow-lg);
 }
 
-.content-box {
-  background: white;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-base);
-}
+/* ==========================================
+   RESPONSIVE BEHAVIOR FOR PROMOTE SECTION
+   ========================================== */
 
-.content-box:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.highlight-box {
-  background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(0, 188, 212, 0.1));
-  border-left: 4px solid var(--primary-color);
-  border-radius: var(--border-radius-md);
-}
-
-/* Responsive behavior for promote section */
+/* Mobile responsive adjustments */
 @media (max-width: 991.98px) {
-  .promote-section .row {
-    flex-direction: column;
-  }
-
   .promote-image {
     min-height: 250px;
-    order: 1;
   }
 
   .promote-content {
-    order: 2;
     min-height: auto;
   }
 
@@ -670,6 +663,32 @@ p,
     width: 100%;
     margin-bottom: 0.75rem;
   }
+
+  .promote-image {
+    min-height: 200px;
+  }
+}
+
+/* ==========================================
+   LEGACY STYLES - Keep for backward compatibility
+   ========================================== */
+
+.content-box {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+}
+
+.content-box:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(0, 188, 212, 0.1));
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--border-radius-md);
 }
 
 /* ==========================================
