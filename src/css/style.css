@@ -13,13 +13,14 @@
   --danger-color: #dc3545;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
+  --primary-light-color: #ffeef1;
 
   /* Page headline colors (customizable per page with fallbacks) */
   --page-headline-color: var(--primary-color); /* Pink/red fallback */
   --page-subheadline-color: var(--secondary-color); /* Blue fallback */
 
   /* Performance schedule colors */
-  --performance-strip-bg: #f8f9fa;
+  --performance-strip-bg: var(--primary-light-color);
   --performance-strip-border: var(--primary-color);
   --performance-strip-hover-shadow: rgba(0, 0, 0, 0.1);
   --performance-date-color: #495057;
@@ -1219,12 +1220,12 @@ p,
   color: var(--primary-color);
 }
 
-.content-article {
+/* .content-article {
   background: white;
   border-radius: var(--border-radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
-}
+} */
 
 .featured-image {
   position: relative;
