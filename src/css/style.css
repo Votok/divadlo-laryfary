@@ -239,10 +239,6 @@ p,
    UTILITY CLASSES
    ========================================== */
 
-.min-vh-75 {
-  min-height: 75vh;
-}
-
 .section-title {
   font-family: var(--font-display);
   font-size: var(--font-size-secondary-headline);
@@ -591,11 +587,6 @@ p,
 }
 
 /* Image styling */
-.promote-image {
-  position: relative;
-  min-height: 400px;
-}
-
 .promote-image img {
   width: 100%;
   height: 100%;
@@ -605,7 +596,6 @@ p,
 /* Content styling */
 .promote-content {
   background: white;
-  min-height: 400px;
 }
 
 .promote-content .content-box {
@@ -640,14 +630,6 @@ p,
 
 /* Mobile responsive adjustments */
 @media (max-width: 991.98px) {
-  .promote-image {
-    min-height: 250px;
-  }
-
-  .promote-content {
-    min-height: auto;
-  }
-
   .promote-content .content-box {
     padding: 2rem;
   }
@@ -662,10 +644,6 @@ p,
     display: block;
     width: 100%;
     margin-bottom: 0.75rem;
-  }
-
-  .promote-image {
-    min-height: 200px;
   }
 }
 
