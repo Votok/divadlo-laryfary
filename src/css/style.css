@@ -1757,3 +1757,103 @@ p,
 /* ==========================================
    END OF CUSTOM FOOTER STYLES
    ========================================== */
+
+/* ==========================================
+   REPERTOAR GRID STYLES
+   ========================================== */
+
+.repertoar-grid {
+  background-color: var(--light-color);
+}
+
+.performance-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.performance-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.performance-image {
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+}
+
+.performance-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: var(--transition-base);
+}
+
+.performance-card:hover .performance-image img {
+  transform: scale(1.05);
+}
+
+.performance-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.performance-primary-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--page-headline-color);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.performance-secondary-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--page-subheadline-color);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.performance-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.performance-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .performance-card {
+    padding: 1rem;
+  }
+
+  .performance-primary-title {
+    font-size: 1.1rem;
+  }
+
+  .performance-secondary-title {
+    font-size: 1rem;
+  }
+
+  .performance-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================
+   END OF REPERTOAR GRID STYLES
+   ========================================== */
