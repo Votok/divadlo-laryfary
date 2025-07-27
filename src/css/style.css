@@ -1876,34 +1876,35 @@ p,
    PERFORMANCE DETAIL PAGE STYLES
    ========================================== */
 
-/* Age badge with background image */
-.age-badge {
-  background-image: url("../images/erben-bck-pro-deti.jpg");
-  background-size: cover;
+/* Base badge styles - reusable for all badges */
+.performance-badge {
+  width: 280px;
+  height: 76px;
+  background-size: 280px 76px;
   background-position: center;
   background-repeat: no-repeat;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  min-height: 80px;
+  color: var(--dark-color);
+  text-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  font-size: 0.9rem;
+  line-height: 0.8;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+/* Age badge with background image */
+.age-badge {
+  background-image: url("../images/erben-bck-pro-deti.jpg");
 }
 
 /* Duration badge with background image */
 .duration-badge {
   background-image: url("../images/erben-bck-delka.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  min-height: 100px;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 /* Performance description styling */
@@ -1920,9 +1921,8 @@ p,
 
 /* Responsive adjustments for performance detail pages */
 @media (max-width: 991.98px) {
-  .age-badge,
-  .duration-badge {
-    min-height: 60px;
+  .performance-badge {
+    font-size: 0.85rem;
   }
 
   .performance-image-sidebar {
@@ -1931,10 +1931,11 @@ p,
 }
 
 @media (max-width: 576px) {
-  .age-badge,
-  .duration-badge {
-    min-height: 50px;
-    font-size: 0.9rem;
+  .performance-badge {
+    width: 280px;
+    height: 76px;
+    background-size: 280px 76px;
+    font-size: 0.8rem;
   }
 }
 
