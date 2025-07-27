@@ -10,162 +10,139 @@ breadcrumbs:
   - title: "Úvod"
     url: "/"
   - title: "Naše knihy"
-# Custom CSS variables for this page (uses default pink/blue fallbacks)
-# --page-headline-color and --page-subheadline-color will use the defaults
+footerCharacterImage: images/nase-knihy-footer-character.jpg
+footerHeightClass: footer-height-medium
 ---
-
-<!-- Custom CSS for this page -->
-<style>
-  /* Using default pink and blue colors for this page */
-  :root {
-    --page-headline-color: #e93578; /* Pink */
-    --page-subheadline-color: #008db1; /* Blue */
-  }
-</style>
 
 <!-- Subpage Header -->
 <section class="subpage-header py-5">
   <div class="container content-gutter">
     <div class="row align-items-center">
-      <div class="col-lg-8">{% include "components/subpage-header.njk" %}</div>
-      {% if headerImage %}
-      <div class="col-lg-4 text-lg-end">
+      <div class="col-lg-6">{% include "components/subpage-header.njk" %}</div>
+      <div class="col-lg-6 text-lg-end">
         <img
-          src="{{ headerImage.src }}"
-          alt="{{ headerImage.alt }}"
-          class="img-fluid rounded shadow hero-images"
+          src="images/nase-knihy-foto-0.jpg"
+          alt="Divadlo Láryfáry - Naše knihy"
+          class="img-fluid rounded shadow"
         />
       </div>
-      {% endif %}
     </div>
   </div>
 </section>
 
 <!-- Main Content -->
+<section class="pb-5">
+  <div class="container content-gutter">
+    <div class="row">
+      <div class="col-lg-8">
+        <article>
+          <p>Kromě divadla totiž píšeme i knihy pro děti.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Content Photos -->
+<section class="py-5">
+  <div class="container content-gutter">
+    <div class="content-photos content-photos-2">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="photo-item">
+            <img
+              src="images/nase-knihy-foto-1.jpg"
+              alt="Divadlo Láryfáry - Knihy pro děti"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="photo-item">
+            <img
+              src="images/nase-knihy-foto-2.jpg"
+              alt="Divadlo Láryfáry - Čtení s dětmi"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Content -->
 <section class="py-5">
   <div class="container content-gutter">
     <div class="row">
-      <!-- Main Content Area (limited width for text readability) -->
       <div class="col-lg-8">
-        <article class="content-article">
-          <!-- Intro Text -->
-          <div class="intro-text p-4 mb-4 bg-light rounded">
-            <p class="lead">
-              <em>Kromě divadla totiž píšeme i knihy pro děti.</em>
-            </p>
-          </div>
-
-          <div class="article-content">
-            <p>
-              Získáte je na našich představeních a s radostí vám do nich přidáme osobní věnování.
-            </p>
-
-            <p>
-              Naše knihy rozšiřují zážitek z divadelních představení a nabízejí dětem možnost
-              ponořit se hlouběji do světa pohádek a příběhů, které na jevišti vidí. Každá kniha je
-              pečlivě napsána s láskou k detailu a s porozuměním pro dětskou fantazii.
-            </p>
-
-            <p>
-              Ať už hledáte dárek pro své děti, vnoučata nebo žáky, naše knihy jsou skvělou volbou
-              pro všechny, kdo milují dobré příběhy a kvalitní literaturu pro děti.
-            </p>
-
-            <!-- Call to Action -->
-            <div class="highlight-box p-4 mt-5 mb-5">
-              <h3 class="mb-3">Jak knihy získat?</h3>
-              <p class="mb-3">
-                Knihy si můžete zakoupit přímo na našich představeních, kde vám je rádi podepíšeme a
-                věnujeme. Pro objednání knih nebo více informací nás kontaktujte.
-              </p>
-              <a href="/kontakt.html" class="btn btn-primary">Kontaktujte nás</a>
-            </div>
-          </div>
+        <article>
+          <p>Získáte je na našich představeních a s radostí vám do nich přidáme osobní věnování.</p>
         </article>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Right Column - Images and Additional Content -->
-      <div class="col-lg-4">
-        <aside class="sidebar">
-          <!-- Book Images Section -->
-          <div class="sidebar-widget mb-4">
-            <div class="widget-content bg-white p-4 rounded shadow-sm">
-              <h4 class="widget-title mb-3">Naše publikace</h4>
+<!-- Quote Section -->
+<section class="promote-section-wrapper">
+  <div class="container-fluid p-0">
+    <div class="row g-0 align-items-stretch">
+      <div class="col-lg-6 order-lg-1 order-2">
+        <div class="promote-image">
+          <img
+            src="images/nase-knihy-quote.jpg"
+            alt="Divadlo Láryfáry - Naše knihy"
+            class="img-fluid h-100 w-100"
+            style="object-fit: cover"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2 order-1">
+        <div class="promote-content d-flex flex-column h-100">
+          <div class="content-box p-5 flex-grow-1 d-flex flex-column justify-content-center">
+            <!-- Empty content area to match the layout structure -->
+          </div>
+        </div>
+      </div>
+    </div>
 
-              <!-- Book showcase images -->
-              <div class="book-gallery mb-3">
-                <img
-                  src="images/holcicka-kniha.jpg"
-                  alt="Holčička s našimi knihami"
-                  class="img-fluid rounded shadow mb-3"
-                />
-              </div>
+    <!-- Quote strip spanning full width - no gap -->
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="quote-box">
+          <blockquote class="blockquote text-center mb-0">
+            <p class="mb-0">
+              Konečně kniha, ze které se dá číst nahlas, aniž by rodiče usínali. A děti se u toho
+              dokonce i smějí.
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-              <p class="text-muted small">
-                Všechny naše knihy jsou napsány s láskou a pečlivostí, kterou vkládáme i do našich
-                divadelních představení.
-              </p>
+<!-- Contact Section -->
+<section class="py-5">
+  <div class="container content-gutter">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="highlight-box p-4">
+          <h3 class="mb-3">Máte zájem o naše knihy?</h3>
+          <p class="mb-3">
+            Knihy si můžete zakoupit na našich představeních s osobním věnováním nebo nás
+            kontaktujte.
+          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <a href="/kontakt.html" class="btn btn-primary">Kontaktujte nás</a>
+            </div>
+            <div class="col-md-6">
+              <a href="/program.html" class="btn btn-outline-primary">Program představení</a>
             </div>
           </div>
-
-          <!-- Contact for Books -->
-          <div class="sidebar-widget mb-4">
-            <div class="widget-content bg-primary text-white p-4 rounded">
-              <h4 class="widget-title mb-3">Objednání knih</h4>
-              <div class="contact-item mb-2">
-                <strong>Telefon:</strong><br />
-                <a href="tel:608823463" class="text-white">608 823 463</a>
-              </div>
-              <div class="contact-item">
-                <strong>Email:</strong><br />
-                <a href="mailto:vlckovajarmila@seznam.cz" class="text-white">
-                  vlckovajarmila@seznam.cz
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Additional Image -->
-          <div class="sidebar-widget mb-4">
-            <div class="featured-image">
-              <img
-                src="images/program-quote.jpg"
-                alt="Divadlo Láryfáry - čtení"
-                class="img-fluid rounded shadow"
-              />
-            </div>
-          </div>
-
-          <!-- Related Links -->
-          <div class="sidebar-widget">
-            <div class="widget-content bg-white p-4 rounded shadow-sm">
-              <h4 class="widget-title mb-3">Související</h4>
-              <div class="related-links">
-                <a
-                  href="/repertoar.html"
-                  class="show-link d-block p-2 mb-2 text-decoration-none border rounded"
-                >
-                  <div class="fw-bold">Naše představení</div>
-                  <small class="text-muted">Podívejte se na náš repertoár</small>
-                </a>
-                <a
-                  href="/pro-poradatele.html"
-                  class="show-link d-block p-2 mb-2 text-decoration-none border rounded"
-                >
-                  <div class="fw-bold">Pro pořadatele</div>
-                  <small class="text-muted">Informace o představeních</small>
-                </a>
-                <a
-                  href="/kontakt.html"
-                  class="show-link d-block p-2 mb-2 text-decoration-none border rounded"
-                >
-                  <div class="fw-bold">Kontakt</div>
-                  <small class="text-muted">Spojte se s námi</small>
-                </a>
-              </div>
-            </div>
-          </div>
-        </aside>
+        </div>
       </div>
     </div>
   </div>
