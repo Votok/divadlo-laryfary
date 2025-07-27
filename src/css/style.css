@@ -2330,3 +2330,52 @@ p,
 /* ==========================================
    END OF PERFORMANCE INFO CIRCLE COMPONENT
    ========================================== */
+
+/* ==========================================
+   PROMOTIONAL MATERIALS
+   ========================================== */
+
+.promo-material-item {
+  transition: var(--transition-base);
+}
+
+.promo-material-item:hover {
+  transform: translateY(-5px);
+}
+
+.promo-material-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.promo-material-item img {
+  transition: var(--transition-base);
+  border: 2px solid transparent;
+}
+
+.promo-material-item:hover img {
+  border-color: var(--primary-color);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.promo-material-item small {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.promo-material-item:hover small {
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments for promotional materials */
+@media (max-width: 768px) {
+  .promo-material-item {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ==========================================
+   END OF PROMOTIONAL MATERIALS
+   ========================================== */
