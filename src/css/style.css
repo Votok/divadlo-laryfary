@@ -1318,6 +1318,80 @@ p,
   background: linear-gradient(135deg, #4caf50, #388e3c);
 }
 
+/* ==========================================
+   ACTORS PAGE STYLES
+   ========================================== */
+
+.actor-section {
+  border-bottom: 1px solid var(--color-light);
+}
+
+.actor-section:last-of-type {
+  border-bottom: none;
+}
+
+.actor-name {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.actor-title {
+  color: var(--color-secondary);
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.actor-description p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.actor-image img {
+  max-height: 600px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Responsive adjustments for actors page */
+@media (max-width: 991.98px) {
+  .actor-name {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .actor-title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .actor-image {
+    text-align: center;
+  }
+
+  .actor-image img {
+    max-height: 400px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .actor-name {
+    font-size: 1.75rem;
+  }
+
+  .actor-title {
+    font-size: 1.1rem;
+  }
+
+  .actor-description p {
+    font-size: 1rem;
+  }
+}
+
 /* Sidebar Styles */
 .sidebar-widget {
   transition: var(--transition-base);
