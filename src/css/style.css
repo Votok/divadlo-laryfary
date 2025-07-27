@@ -1959,3 +1959,196 @@ p,
 /* ==========================================
    END OF PERFORMANCE DETAIL PAGE STYLES
    ========================================== */
+
+/* ==========================================
+   PERFORMANCE INFO CIRCLE COMPONENT - REUSABLE
+   ========================================== */
+
+.performance-info-circle {
+  width: 100%;
+  max-width: 416px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.performance-info-circle-content {
+  text-align: center;
+  color: var(--dark-color);
+  padding: 2.5rem;
+  width: 100%;
+}
+
+.performance-info-circle h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.performance-info-circle h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.performance-info-circle p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* Specific background images for different performances */
+.circle-erben {
+  background-image: url("../images/erben-kolecko-napsaly.jpg");
+}
+
+.circle-bajky {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+.circle-cirkusacka {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+.circle-indiani {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+.circle-kouzla {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+.circle-namornici {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+.circle-o-kacence {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+.circle-strasidelne-nadrazi {
+  /* Will be added when creating other performance pages */
+  background-image: url("../images/kolecko-footer.jpg");
+}
+
+/* Responsive adjustments for circle component */
+@media (max-width: 1024px) {
+  .performance-info-circle {
+    max-width: 360px;
+  }
+
+  .performance-info-circle-content {
+    padding: 2rem;
+  }
+
+  .performance-info-circle h4 {
+    font-size: 1.1rem;
+  }
+
+  .performance-info-circle h5 {
+    font-size: 1rem;
+  }
+
+  .performance-info-circle p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .performance-info-circle {
+    max-width: 300px;
+  }
+
+  .performance-info-circle-content {
+    padding: 1.8rem;
+  }
+
+  .performance-info-circle h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .performance-info-circle h5 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .performance-info-circle p {
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .performance-info-circle {
+    max-width: 260px;
+  }
+
+  .performance-info-circle-content {
+    padding: 1.4rem;
+  }
+
+  .performance-info-circle h4 {
+    font-size: 0.9rem;
+  }
+
+  .performance-info-circle h5 {
+    font-size: 0.85rem;
+  }
+
+  .performance-info-circle p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small headline styling for requirements section */
+.requirements-headline {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.requirements-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.requirements-text strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ==========================================
+   END OF PERFORMANCE INFO CIRCLE COMPONENT
+   ========================================== */
