@@ -1766,6 +1766,100 @@ p,
    ========================================== */
 
 /* ==========================================
+   FOOTER HEIGHT MODIFIERS
+   ========================================== */
+
+/* Footer height modifiers for different character images */
+.custom-footer.footer-height-compact {
+  min-height: 600px;
+}
+
+.custom-footer.footer-height-medium {
+  min-height: 700px;
+}
+
+.custom-footer.footer-height-tall {
+  min-height: 850px; /* Default height */
+}
+
+.custom-footer.footer-height-extra-tall {
+  min-height: 950px;
+}
+
+/* Responsive adjustments for footer height modifiers */
+@media (max-width: 1024px) {
+  .custom-footer.footer-height-compact {
+    min-height: 550px;
+  }
+
+  .custom-footer.footer-height-medium {
+    min-height: 650px;
+  }
+
+  .custom-footer.footer-height-tall {
+    min-height: 780px;
+  }
+
+  .custom-footer.footer-height-extra-tall {
+    min-height: 850px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-footer.footer-height-compact {
+    min-height: 480px;
+  }
+
+  .custom-footer.footer-height-medium {
+    min-height: 550px;
+  }
+
+  .custom-footer.footer-height-tall {
+    min-height: 650px;
+  }
+
+  .custom-footer.footer-height-extra-tall {
+    min-height: 720px;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-footer.footer-height-compact {
+    min-height: 420px;
+  }
+
+  .custom-footer.footer-height-medium {
+    min-height: 500px;
+  }
+
+  .custom-footer.footer-height-tall {
+    min-height: 580px;
+  }
+
+  .custom-footer.footer-height-extra-tall {
+    min-height: 640px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-footer.footer-height-compact {
+    min-height: 380px;
+  }
+
+  .custom-footer.footer-height-medium {
+    min-height: 460px;
+  }
+
+  .custom-footer.footer-height-tall {
+    min-height: 540px;
+  }
+
+  .custom-footer.footer-height-extra-tall {
+    min-height: 600px;
+  }
+}
+
+/* ==========================================
    REPERTOAR GRID STYLES
    ========================================== */
 
