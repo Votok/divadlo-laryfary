@@ -2158,6 +2158,11 @@ p,
   flex-direction: column;
 }
 
+/* Age badge for books - reuses the same background as age-badge */
+.age-badge-book {
+  background-image: url("../images/erben-bck-pro-deti.jpg");
+}
+
 /* Performance description styling */
 .performance-description p {
   margin-bottom: 1.2rem;
