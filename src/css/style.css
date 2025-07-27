@@ -1188,6 +1188,13 @@ p,
     margin-top: 2rem;
     text-align: center !important;
   }
+
+  /* Badge positioning on mobile */
+  .subpage-header .performance-badge {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .page-header {
@@ -1901,8 +1908,19 @@ p,
   background-image: url("../images/erben-bck-pro-deti.jpg");
 }
 
+/* Custom age badge for Erben stories */
+.age-badge-erben {
+  background-image: url("../images/erben-bck-pro-deti.jpg");
+}
+
 /* Duration badge with background image */
 .duration-badge {
+  background-image: url("../images/erben-bck-delka.jpg");
+  flex-direction: column;
+}
+
+/* Custom duration badge for Erben stories */
+.duration-badge-erben {
   background-image: url("../images/erben-bck-delka.jpg");
   flex-direction: column;
 }
