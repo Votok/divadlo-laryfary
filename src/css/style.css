@@ -2161,6 +2161,7 @@ p,
 /* Age badge for books - reuses the same background as age-badge */
 .age-badge-book {
   background-image: url("../images/erben-bck-pro-deti.jpg");
+  margin: 0 auto;
 }
 
 /* Performance description styling */
