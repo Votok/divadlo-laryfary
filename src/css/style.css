@@ -1934,7 +1934,6 @@ p,
 /* Performance sidebar image */
 .performance-image-sidebar img {
   width: 100%;
-  max-width: 400px;
 }
 
 /* Responsive adjustments for performance detail pages */
