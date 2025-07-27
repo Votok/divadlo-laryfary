@@ -660,8 +660,8 @@ p,
 }
 
 .content-box:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  /* box-shadow: var(--shadow-md); */
+  /* transform: translateY(-2px); */
 }
 
 .highlight-box {
@@ -879,6 +879,61 @@ p,
 
 .gallery-item:hover .gallery-image {
   transform: scale(1.1);
+}
+
+/* ==========================================
+   CONTENT PHOTOS - Reusable photo grid
+   ========================================== */
+
+.content-photos {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.content-photos .photo-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.content-photos .photo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.content-photos .photo-item img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: var(--transition-base);
+}
+
+.content-photos .photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive grid for photos */
+.content-photos .row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.content-photos .row > [class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+/* For 2 photos per row on desktop */
+.content-photos-2 .photo-item img {
+  height: 380px;
+}
+
+/* For 4 photos per row on desktop */
+.content-photos-4 .photo-item img {
+  height: 280px;
 }
 
 .video-placeholder {
