@@ -1686,15 +1686,11 @@ p,
   transition: var(--transition-base);
 }
 
-.footer-social-link:hover {
-  transform: translateY(-3px) scale(1.1);
-}
-
 .footer-social-link img {
   width: 45px;
   height: 45px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Removed shadow */
 }
 
 .footer-text {
