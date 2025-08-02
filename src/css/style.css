@@ -2138,29 +2138,29 @@ p,
 
 /* Age badge with background image */
 .age-badge {
-  background-image: url("../images/erben-bck-pro-deti.jpg");
+  background-image: url("../images/bck-pink.jpg");
 }
 
 /* Custom age badge for Erben stories */
 .age-badge-erben {
-  background-image: url("../images/erben-bck-pro-deti.jpg");
+  background-image: url("../images/bck-pink.jpg");
 }
 
 /* Duration badge with background image */
 .duration-badge {
-  background-image: url("../images/erben-bck-delka.jpg");
+  background-image: url("../images/bck-magenta.jpg");
   flex-direction: column;
 }
 
 /* Custom duration badge for Erben stories */
 .duration-badge-erben {
-  background-image: url("../images/erben-bck-delka.jpg");
+  background-image: url("../images/bck-magenta.jpg");
   flex-direction: column;
 }
 
 /* Age badge for books - reuses the same background as age-badge */
 .age-badge-book {
-  background-image: url("../images/erben-bck-pro-deti.jpg");
+  background-image: url("../images/bck-pink.jpg");
   margin: 0 auto;
 }
 
