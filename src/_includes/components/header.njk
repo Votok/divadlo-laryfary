@@ -3,19 +3,20 @@
   <div class="container">
     <a class="navbar-brand" href="./"> Divadlo Láryfáry </a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Hidden checkbox for menu toggle state -->
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <!-- Hamburger menu button (for opening) -->
+    <label for="navToggle" class="navbar-toggler" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </label>
+
+    <div class="navbar-collapse" id="navbarNav">
+      <!-- Close button (X icon) in top-right of mobile menu -->
+      <label for="navToggle" class="nav-close-btn" aria-label="Close navigation">
+        <span class="nav-close-icon">&times;</span>
+      </label>
+      
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link{% if '/program.html' in page.url %} active{% endif %}" href="program.html">Program</a>
