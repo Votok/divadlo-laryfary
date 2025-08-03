@@ -1,5 +1,10 @@
 // .eleventy.js
 module.exports = function (eleventyConfig) {
+  // Add a simple cache-busting filter based on build time
+  eleventyConfig.addFilter("cacheBust", function () {
+    return Date.now();
+  });
+
   // Set your input directory (where your source files are)
   eleventyConfig.addWatchTarget("./src/css/"); // Watch CSS for changes
   eleventyConfig.addPassthroughCopy("./src/css"); // Copy CSS directly
