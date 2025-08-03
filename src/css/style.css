@@ -386,8 +386,8 @@ p,
   /* Close button styles - positioned in top-right with small margin */
   .nav-close-btn {
     position: fixed;
-    top: 0.75rem;
-    right: 0.75rem;
+    top: 1rem;
+    right: 2rem;
     width: 40px;
     height: 40px;
     display: flex;
@@ -411,6 +411,10 @@ p,
     font-size: 1.5rem;
     font-weight: bold;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -0.1em; /* Slight adjustment to counteract character spacing */
   }
 
   /* Mobile menu collapsed state (default) */
