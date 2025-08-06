@@ -40,9 +40,9 @@
   /* Banner - responsive heights (less aggressive scaling) */
   --banner-height: 300px;
   --banner-height-lg: 300px;
-  --banner-height-md: 280px;
-  --banner-height-sm: 250px;
-  --banner-height-xs: 220px;
+  --banner-height-md: 265px;
+  --banner-height-sm: 200px;
+  --banner-height-xs: 165px;
 
   /* Typography */
   --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -1775,8 +1775,8 @@ p,
 }
 
 .footer-circle {
-  width: 416px;
-  height: 416px;
+  width: 450px;
+  height: 450px;
   background-image: url("../images/kolecko-footer.jpg");
   background-size: cover;
   background-position: center;
@@ -1785,7 +1785,7 @@ p,
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 .footer-circle-content {
@@ -1863,8 +1863,8 @@ p,
   }
 
   .footer-circle {
-    width: 360px;
-    height: 360px;
+    width: 380px;
+    height: 380px;
   }
 
   .footer-circle-container {
@@ -1901,8 +1901,8 @@ p,
   }
 
   .footer-circle {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
   }
 
   .footer-circle-content {
@@ -1957,8 +1957,8 @@ p,
   }
 
   .footer-circle {
-    width: 260px;
-    height: 260px;
+    width: 320px;
+    height: 320px;
   }
 
   .footer-circle-content {
@@ -2013,8 +2013,8 @@ p,
   }
 
   .footer-circle {
-    width: 220px;
-    height: 220px;
+    width: 290px;
+    height: 290px;
   }
 
   .footer-circle-content {
