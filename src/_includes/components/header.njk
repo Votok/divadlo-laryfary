@@ -19,6 +19,9 @@
       
       <ul class="navbar-nav">
         <li class="nav-item">
+          <a class="nav-link{% if '/index.html' in page.url or page.url == '/' %} active{% endif %}" href="./">Úvod</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link{% if '/program.html' in page.url %} active{% endif %}" href="program.html">Program</a>
         </li>
         <li class="nav-item">
