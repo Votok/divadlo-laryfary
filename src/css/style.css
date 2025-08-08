@@ -1857,20 +1857,28 @@ p,
 
 /* Responsive design for footer */
 @media (max-width: 1024px) {
-  .footer-character-left .footer-character,
-  .footer-character-right .footer-character {
-    width: 40%;
-    max-width: 480px;
+  .custom-footer {
+    padding: 3rem 0 0 0;
+    min-height: 700px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .footer-character-left .footer-content {
-    max-width: 58%;
-    padding: 0 3rem 0 2rem;
-  }
-
+  .footer-character-left .footer-content,
   .footer-character-right .footer-content {
-    max-width: 58%;
-    padding: 0 2rem 0 3rem;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .footer-circle-container {
+    justify-content: center;
+    margin-left: 0;
+    margin-bottom: 2rem;
   }
 
   .footer-circle {
@@ -1878,13 +1886,39 @@ p,
     height: 380px;
   }
 
-  .footer-circle-container {
-    margin-left: 0;
+  .footer-circle-content {
+    padding: 2rem;
   }
 
-  .custom-footer {
-    min-height: 780px;
-    padding: 4rem 00 0;
+  .footer-social-link img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
+
+  .footer-motto p {
+    font-size: 1.4rem;
+  }
+
+  .footer-character-left .footer-character {
+    position: relative;
+    left: 0;
+    width: 70%;
+    max-width: none;
+    align-self: flex-start; /* Align to left edge */
+    margin-top: 1rem;
+  }
+
+  .footer-character-right .footer-character {
+    position: relative;
+    right: 0;
+    width: 70%;
+    max-width: none;
+    align-self: flex-end; /* Align to right edge */
+    margin-top: 1rem;
   }
 }
 
@@ -1942,7 +1976,7 @@ p,
   .footer-character-left .footer-character {
     position: relative;
     left: 0;
-    width: 60%;
+    width: 90%;
     max-width: none;
     align-self: flex-start; /* Align to left edge */
     margin-top: 1rem;
@@ -1951,7 +1985,7 @@ p,
   .footer-character-right .footer-character {
     position: relative;
     right: 0;
-    width: 60%;
+    width: 90%;
     max-width: none;
     align-self: flex-end; /* Align to right edge */
     margin-top: 1rem;
@@ -2005,22 +2039,26 @@ p,
   }
 
   .footer-character-left .footer-character {
-    width: 55%;
+    width: 90%;
     align-self: flex-start; /* Align to left edge */
   }
 
   .footer-character-right .footer-character {
-    width: 55%;
+    width: 90%;
     align-self: flex-end; /* Align to right edge */
   }
 }
 
 /* Ensure footer character is always at the bottom */
 @media (max-width: 480px) {
-  .footer-character-left .footer-character,
+  .footer-character-left .footer-character {
+    width: 100%;
+    align-self: flex-start; /* Keep left alignment */
+  }
+
   .footer-character-right .footer-character {
-    width: 50%;
-    align-self: flex-end;
+    width: 100%;
+    align-self: flex-end; /* Keep right alignment */
   }
 
   .custom-footer {
