@@ -1740,7 +1740,7 @@ p,
   position: relative;
   z-index: 2;
   text-align: left;
-  max-width: 60%;
+  max-width: 50%;
   margin: 0 0 0 auto; /* Push content to the right */
   padding: 0 4rem 0 2rem;
   flex: 1;
@@ -1751,8 +1751,8 @@ p,
   bottom: 0;
   left: 0; /* Character on the left */
   z-index: 1;
-  width: 42%;
-  max-width: 580px;
+  width: 50%;
+  /* max-width: 580px; */
   line-height: 0;
 }
 
@@ -1760,7 +1760,7 @@ p,
   position: relative;
   z-index: 2;
   text-align: left;
-  max-width: 60%;
+  max-width: 50%;
   margin: 0;
   padding: 0 2rem 0 4rem;
   flex: 1;
@@ -1771,9 +1771,14 @@ p,
   bottom: 0;
   right: 0; /* Character on the right */
   z-index: 1;
-  width: 42%;
-  max-width: 580px;
+  width: 50%;
+  /* max-width: 580px; */
   line-height: 0;
+}
+
+.footer-character-left .footer-character.footer-character-max-width,
+.footer-character-right .footer-character.footer-character-max-width {
+  max-width: 580px;
 }
 
 .footer-circle-container {
@@ -1858,7 +1863,7 @@ p,
 /* Responsive design for footer */
 @media (max-width: 1024px) {
   .custom-footer {
-    padding: 3rem 0 0 0;
+    padding: 6rem 0 0 0;
     min-height: 700px;
     flex-direction: column;
     align-items: flex-start;
@@ -1909,7 +1914,7 @@ p,
     width: 70%;
     max-width: none;
     align-self: flex-start; /* Align to left edge */
-    margin-top: 1rem;
+    margin-top: 4rem;
   }
 
   .footer-character-right .footer-character {
@@ -1918,13 +1923,13 @@ p,
     width: 70%;
     max-width: none;
     align-self: flex-end; /* Align to right edge */
-    margin-top: 1rem;
+    margin-top: 4rem;
   }
 }
 
 @media (max-width: 768px) {
   .custom-footer {
-    padding: 3rem 0 0 0;
+    padding: 5rem 0 0 0;
     min-height: 650px;
     flex-direction: column;
     align-items: flex-start;
@@ -1979,7 +1984,7 @@ p,
     width: 90%;
     max-width: none;
     align-self: flex-start; /* Align to left edge */
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 
   .footer-character-right .footer-character {
@@ -1988,13 +1993,13 @@ p,
     width: 90%;
     max-width: none;
     align-self: flex-end; /* Align to right edge */
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 }
 
 @media (max-width: 576px) {
   .custom-footer {
-    padding: 2rem 0 0 0;
+    padding: 5rem 0 0 0;
     min-height: 580px;
   }
 
@@ -2063,7 +2068,7 @@ p,
 
   .custom-footer {
     min-height: 540px;
-    padding: 2rem 0 0 0;
+    padding: 5rem 0 0 0;
   }
 
   .footer-circle {
@@ -2107,7 +2112,7 @@ p,
 }
 
 .custom-footer.footer-height-extra-tall {
-  min-height: 950px;
+  min-height: 1050px;
 }
 
 /* Responsive adjustments for footer height modifiers */
