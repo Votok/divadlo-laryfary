@@ -55,7 +55,7 @@
   /* Font sizes in rem (px equivalents in comments) */
   --font-size-headline: 4.0625rem; /* 65px */
   --font-size-headline-mobile: 2.5rem; /* 40px */
-  --font-size-secondary-headline: 2.1875rem; /* 35px */
+  --font-size-secondary-headline: 2.5rem;
   --font-size-secondary-headline-mobile: 1.75rem; /* 28px */
   --font-size-body: 1.125rem; /* 18px */
   --font-size-quote: 1.5rem; /* 24px */
