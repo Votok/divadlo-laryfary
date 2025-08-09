@@ -87,6 +87,37 @@
   --border-radius-sm: 0.375rem;
   --border-radius-md: 0.5rem;
   --border-radius-lg: 0.75rem;
+
+  /* ==========================================
+    Performance page theme colors (by Repertoár order)
+    1 Ene bene Erbene, 2 Cirkusácká, 3 Strašidelné nádraží,
+    4 Tři námořníci, 5 Kačenka a Rarášek, 6 Indiáni ze šuplíku,
+    7 Kouzla a čáry tajemné Prahy, 8 Strakaté bajky
+  ========================================== */
+  /* Ene bene Erbene */
+  --ene-primary: #7e2199;
+  --ene-secondary: #c238eb;
+  /* Cirkusácká pohádka */
+  --cirkusacka-primary: #3b1d8f;
+  --cirkusacka-secondary: #9c29b7;
+  /* Pohádka o strašidelném nádraží */
+  --strasidlo-primary: #355723;
+  --strasidlo-secondary: #6e7623;
+  /* Pohádka o třech námořnících */
+  --namornici-primary: #3b1d8f;
+  --namornici-secondary: #00a4d3;
+  /* Pohádka o Kačence a Raráškovi */
+  --kacenka-primary: #7e2199;
+  --kacenka-secondary: #bb285c;
+  /* Indiáni ze šuplíku */
+  --indiani-primary: #af3a11;
+  --indiani-secondary: #d68227;
+  /* Kouzla a čáry tajemné Prahy */
+  --praha-primary: #355723;
+  --praha-secondary: #aa671d;
+  /* Strakaté bajky */
+  --bajky-primary: #004e63;
+  --bajky-secondary: #d68227;
 }
 
 /* ==========================================
@@ -175,6 +206,66 @@ p,
 
 .text-theme-dark {
   color: var(--dark-color);
+}
+
+/* ==========================================
+  Performance theme headline utilities
+  Use with subpage header via pageTitleClass / subtitleClass
+========================================== */
+.text-ene-primary {
+  color: var(--ene-primary) !important;
+}
+.text-ene-secondary {
+  color: var(--ene-secondary) !important;
+}
+
+.text-cirkusacka-primary {
+  color: var(--cirkusacka-primary) !important;
+}
+.text-cirkusacka-secondary {
+  color: var(--cirkusacka-secondary) !important;
+}
+
+.text-strasidlo-primary {
+  color: var(--strasidlo-primary) !important;
+}
+.text-strasidlo-secondary {
+  color: var(--strasidlo-secondary) !important;
+}
+
+.text-namornici-primary {
+  color: var(--namornici-primary) !important;
+}
+.text-namornici-secondary {
+  color: var(--namornici-secondary) !important;
+}
+
+.text-kacenka-primary {
+  color: var(--kacenka-primary) !important;
+}
+.text-kacenka-secondary {
+  color: var(--kacenka-secondary) !important;
+}
+
+.text-indiani-primary {
+  color: var(--indiani-primary) !important;
+}
+.text-indiani-secondary {
+  color: var(--indiani-secondary) !important;
+}
+
+.text-praha-primary {
+  color: var(--praha-primary) !important;
+}
+.text-praha-secondary {
+  color: var(--praha-secondary) !important;
+}
+
+.text-bajky-primary {
+  color: var(--bajky-primary) !important;
+}
+.text-bajky-secondary {
+  color: var(--bajky-secondary) !important;
 }
 
 /* Site wrapper for max width constraint */
