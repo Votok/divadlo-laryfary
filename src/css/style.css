@@ -2224,25 +2224,39 @@ p,
   font-weight: 600;
 }
 
-/* Age badge with background image */
-.age-badge {
-  background-image: url("../images/bck-pink.jpg");
+/* Badge color utilities (use with .performance-badge) */
+.badge-blue {
+  background-image: url("../images/bck-blue.jpg");
+  flex-direction: column;
 }
 
-/* Custom age badge for Erben stories */
-.age-badge-erben {
-  background-image: url("../images/bck-pink.jpg");
+.badge-yellow {
+  background-image: url("../images/bck-yellow.jpg");
+  flex-direction: column;
 }
 
-/* Duration badge with background image */
-.duration-badge {
+.badge-green {
+  background-image: url("../images/bck-green.jpg");
+  flex-direction: column;
+}
+
+.badge-orange {
+  background-image: url("../images/bck-orange.jpg");
+  flex-direction: column;
+}
+
+.badge-pink {
+  background-image: url("../images/bck-pink.jpg");
+  flex-direction: column;
+}
+
+.badge-magenta {
   background-image: url("../images/bck-magenta.jpg");
   flex-direction: column;
 }
 
-/* Custom duration badge for Erben stories */
-.duration-badge-erben {
-  background-image: url("../images/bck-magenta.jpg");
+.badge-purple-blue {
+  background-image: url("../images/bck-purple-blue.jpg");
   flex-direction: column;
 }
 
