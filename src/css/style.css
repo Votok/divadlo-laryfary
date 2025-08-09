@@ -55,7 +55,7 @@
   /* Font sizes in rem (px equivalents in comments) */
   --font-size-headline: 4.0625rem; /* 65px */
   --font-size-headline-mobile: 2.5rem; /* 40px */
-  --font-size-secondary-headline: 2.5rem;
+  --font-size-secondary-headline: 2.5rem; /* 40px */
   --font-size-secondary-headline-mobile: 1.75rem; /* 28px */
   --font-size-body: 1.125rem; /* 18px */
   --font-size-quote: 1.5rem; /* 24px */
@@ -593,6 +593,7 @@ p,
     font-size: var(--font-size-secondary-headline-mobile);
   }
 
+  h2,
   .section-title {
     font-size: var(--font-size-secondary-headline-mobile);
   }
@@ -614,6 +615,7 @@ p,
     font-size: var(--font-size-secondary-headline-mobile);
   }
 
+  h2,
   .section-title {
     font-size: var(--font-size-secondary-headline-mobile);
   }
@@ -635,6 +637,7 @@ p,
     font-size: var(--font-size-secondary-headline-mobile);
   }
 
+  h2,
   .section-title {
     font-size: var(--font-size-secondary-headline-mobile);
   }
@@ -1414,7 +1417,7 @@ p,
 
 .actor-name {
   color: var(--color-primary);
-  font-size: 2.5rem;
+  font-size: var(--font-size-secondary-headline);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -1441,7 +1444,7 @@ p,
 /* Responsive adjustments for actors page */
 @media (max-width: 991.98px) {
   .actor-name {
-    font-size: 2rem;
+    font-size: var(--font-size-secondary-headline-mobile);
     text-align: center;
   }
 
@@ -1462,7 +1465,7 @@ p,
 
 @media (max-width: 576px) {
   .actor-name {
-    font-size: 1.75rem;
+    font-size: var(--font-size-secondary-headline-mobile);
   }
 
   .actor-title {
