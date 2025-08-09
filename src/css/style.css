@@ -811,29 +811,36 @@ p,
   text-align: center;
 }
 
-.quote-box::before {
-  content: '"';
-  position: absolute;
-  top: 1rem;
-  left: 2rem;
-  font-size: 8rem;
-  opacity: 0.2;
-  font-family: var(--font-display);
-  color: white;
-  line-height: 1;
+.quote-box p {
+  position: relative; /* Anchor decorative quotes to the paragraph box */
 }
 
-.quote-box::after {
-  content: '"';
+.quote-box p::before {
+  content: "„";
   position: absolute;
-  bottom: 1rem;
-  right: 2rem;
+  bottom: 0;
+  left: 0;
   font-size: 8rem;
   opacity: 0.2;
   font-family: var(--font-display);
-  color: white;
+  color: var(--quote-color);
   line-height: 1;
-  transform: rotate(180deg);
+  pointer-events: none;
+  transform: translate(-100%, 10%);
+}
+
+.quote-box p::after {
+  content: "“";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 8rem;
+  opacity: 0.2;
+  font-family: var(--font-display);
+  color: var(--quote-color);
+  line-height: 1;
+  pointer-events: none;
+  transform: translate(100%, -30%);
 }
 
 .quote-box .blockquote {
@@ -860,16 +867,16 @@ p,
     padding: 4rem 2rem;
   }
 
-  .quote-box::before {
+  .quote-box p::before {
     font-size: 6rem;
-    top: 0.5rem;
-    left: 1rem;
+    bottom: 0;
+    left: 0;
   }
 
-  .quote-box::after {
+  .quote-box p::after {
     font-size: 6rem;
-    bottom: 0.5rem;
-    right: 1rem;
+    top: 0;
+    right: 0;
   }
 }
 
@@ -878,16 +885,16 @@ p,
     padding: 3rem 1.5rem;
   }
 
-  .quote-box::before {
+  .quote-box p::before {
     font-size: 4rem;
-    top: 0.25rem;
-    left: 0.5rem;
+    bottom: 0;
+    left: 0;
   }
 
-  .quote-box::after {
+  .quote-box p::after {
     font-size: 4rem;
-    bottom: 0.25rem;
-    right: 0.5rem;
+    top: 0;
+    right: 0;
   }
 }
 
