@@ -290,7 +290,7 @@ p,
 /* Adjust hero banner for site wrapper */
 .hero-banner {
   height: var(--banner-height);
-  background-image: url("../images/top-banner.jpg");
+  background-image: url("images/top-banner.jpg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -1810,7 +1810,7 @@ p,
 .footer-circle {
   width: 410px;
   height: 410px;
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -2319,43 +2319,43 @@ p,
 
 /* Badge color utilities (use with .performance-badge) */
 .badge-blue {
-  background-image: url("../images/bck-blue.jpg");
+  background-image: url("images/bck-blue.jpg");
   flex-direction: column;
 }
 
 .badge-yellow {
-  background-image: url("../images/bck-yellow.jpg");
+  background-image: url("images/bck-yellow.jpg");
   flex-direction: column;
 }
 
 .badge-green {
-  background-image: url("../images/bck-green.jpg");
+  background-image: url("images/bck-green.jpg");
   flex-direction: column;
 }
 
 .badge-orange {
-  background-image: url("../images/bck-orange.jpg");
+  background-image: url("images/bck-orange.jpg");
   flex-direction: column;
 }
 
 .badge-pink {
-  background-image: url("../images/bck-pink.jpg");
+  background-image: url("images/bck-pink.jpg");
   flex-direction: column;
 }
 
 .badge-magenta {
-  background-image: url("../images/bck-magenta.jpg");
+  background-image: url("images/bck-magenta.jpg");
   flex-direction: column;
 }
 
 .badge-purple-blue {
-  background-image: url("../images/bck-purple-blue.jpg");
+  background-image: url("images/bck-purple-blue.jpg");
   flex-direction: column;
 }
 
 /* Age badge for books - reuses the same background as age-badge */
 .age-badge-book {
-  background-image: url("../images/bck-pink.jpg");
+  background-image: url("images/bck-pink.jpg");
   margin: 0 auto;
 }
 
@@ -2448,42 +2448,42 @@ p,
 
 /* Specific background images for different performances */
 .circle-erben {
-  background-image: url("../images/erben-kolecko-napsaly.jpg");
+  background-image: url("images/erben-kolecko-napsaly.jpg");
 }
 
 .circle-bajky {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 .circle-cirkusacka {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 .circle-indiani {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 .circle-kouzla {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 .circle-namornici {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 .circle-o-kacence {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 .circle-strasidelne-nadrazi {
   /* Will be added when creating other performance pages */
-  background-image: url("../images/kolecko-footer.jpg");
+  background-image: url("images/kolecko-footer.jpg");
 }
 
 @media (max-width: 1024px) {
