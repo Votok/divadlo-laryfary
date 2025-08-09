@@ -2500,16 +2500,6 @@ p,
   transform: scale(1.02);
 }
 
-.promo-material-item small {
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: var(--transition-base);
-}
-
-.promo-material-item:hover small {
-  color: var(--primary-color);
-}
-
 /* Responsive adjustments for promotional materials */
 @media (max-width: 768px) {
   .promo-material-item {
