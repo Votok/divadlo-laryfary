@@ -511,7 +511,8 @@ p,
     bottom: 0;
     z-index: 1000;
     background: var(--header-strip-bg);
-    padding: 2rem 1rem;
+    /* Tighter padding so menu items start closer to the top */
+    padding: 0.75rem 0.75rem;
     margin: 0;
     width: 100vw;
     height: 100vh;
@@ -519,7 +520,8 @@ p,
     display: none; /* Hidden by default */
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    /* Align items to the left/top instead of centered */
+    align-items: flex-start;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -550,16 +552,22 @@ p,
 
   .navbar-nav {
     flex-direction: column;
-    gap: 0.3rem;
-    align-items: center;
-    margin-top: 3rem; /* Space for close button */
+    /* Reduce gaps between items */
+    gap: 0.15rem;
+    /* Left-align the list and remove excessive top margin */
+    align-items: stretch;
+    margin-top: 1rem; /* Smaller space for close button */
+    width: 100%;
   }
 
   .navbar-nav .nav-link {
-    text-align: center;
-    width: auto;
-    padding: 1rem 2rem;
-    font-size: 1.25rem;
+    /* Make links full-width and left-aligned for compact stacking */
+    display: block;
+    text-align: left;
+    width: 100%;
+    /* Tighter padding and slightly smaller font to reduce overall height */
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     transition: var(--transition-fast);
     border-radius: var(--border-radius-md);

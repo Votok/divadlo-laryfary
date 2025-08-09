@@ -42,15 +42,18 @@ module.exports = function (eleventyConfig) {
   // Transform: make stylesheet hrefs relative in final HTML output
   eleventyConfig.addTransform("relative-stylesheet-href", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
-      return content.replace(/(<link[^>]*rel=["']stylesheet["'][^>]*href=["'])\/(.*?)(["'][^>]*>)/gi, (m, p1, p2, p3) => {
-        return `${p1}${p2}${p3}`;
-      });
+      return content.replace(
+        /(<link[^>]*rel=["']stylesheet["'][^>]*href=["'])\/(.*?)(["'][^>]*>)/gi,
+        (m, p1, p2, p3) => {
+          return `${p1}${p2}${p3}`;
+        }
+      );
     }
     return content;
   });
 
   return {
-  pathPrefix: "",
+    pathPrefix: "",
     dir: {
       input: "src", // All your source files will be in the 'src' directory
       output: "_site", // Eleventy will build your site here
