@@ -2342,6 +2342,22 @@ p,
   flex-direction: column;
 }
 
+/* Additional PNG badge variants */
+.badge-orange-png {
+  background-image: url("images/bck-orange.png");
+  flex-direction: column;
+}
+
+.badge-green-png {
+  background-image: url("images/bck-green.png");
+  flex-direction: column;
+}
+
+.badge-blue-png {
+  background-image: url("images/bck-blue.png");
+  flex-direction: column;
+}
+
 .badge-green {
   background-image: url("images/bck-green.jpg");
   flex-direction: column;
