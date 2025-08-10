@@ -2336,6 +2336,12 @@ p,
   flex-direction: column;
 }
 
+/* Yellow badge using PNG asset (for higher fidelity) */
+.badge-yellow-png {
+  background-image: url("images/bck-yellow.png");
+  flex-direction: column;
+}
+
 .badge-green {
   background-image: url("images/bck-green.jpg");
   flex-direction: column;
