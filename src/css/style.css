@@ -67,8 +67,8 @@
   --font-size-performance-date: 0.95rem; /* 15.2px */
   --font-size-performance-venue: 0.9rem; /* 14.4px */
   --font-size-tickets-btn: 0.875rem; /* 14px */
-  --font-size-performance-title: 1.2rem; /* 19.2px */
-  --font-size-performance-title-mobile: 1rem; /* 16px */
+  --font-size-performance-title: 1.3rem; /* 20.8px */
+  --font-size-performance-title-mobile: 1.1rem; /* 17.6px */
 
   /* Spacing */
   --section-padding: 5rem 0;
@@ -2242,7 +2242,7 @@ p,
 
 .performance-primary-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--page-headline-color);
   margin-bottom: 0.75rem;
@@ -2252,7 +2252,7 @@ p,
 
 .performance-secondary-title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--page-subheadline-color);
   margin-bottom: 1rem;
@@ -2260,7 +2260,7 @@ p,
 }
 
 .performance-description {
-  font-size: 0.95rem;
+  font-size: var(--font-size-body);
   line-height: 1.5;
   color: #555;
   margin-bottom: 1.5rem;
@@ -2279,15 +2279,15 @@ p,
   }
 
   .performance-primary-title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
   .performance-secondary-title {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   .performance-description {
-    font-size: 0.9rem;
+    font-size: var(--font-size-body);
   }
 }
 
