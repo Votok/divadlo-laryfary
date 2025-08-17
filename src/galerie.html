@@ -179,8 +179,29 @@ footerCharacterOrientation: right
     const btn = e.target.closest("[data-close-details]");
     if (!btn) return;
     const details = btn.closest("details");
-    if (details) {
-      details.open = false;
+    if (!details) return;
+
+    // Find the current performance section (nearest ancestor with an id)
+    const section = btn.closest("[id]");
+
+    // Close the details first to collapse the extra height
+    details.open = false;
+
+    // After the collapse, scroll the section back into view to avoid jumping under next performance
+    if (section && typeof section.scrollIntoView === "function") {
+      // Delay a tick so layout recalculates before scrolling
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Optionally return focus to the summary for accessibility without causing scroll
+        const summary = details.querySelector("summary");
+        if (summary && typeof summary.focus === "function") {
+          try {
+            summary.focus({ preventScroll: true });
+          } catch (err) {
+            summary.focus();
+          }
+        }
+      }, 50);
     }
   });
 </script>
