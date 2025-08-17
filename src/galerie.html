@@ -58,6 +58,10 @@ footerCharacterOrientation: right
   details > summary {
     list-style: none;
   }
+  /* When open, hide the top summary to avoid duplicate controls */
+  details[open] > summary {
+    display: none;
+  }
   details .when-open {
     display: none;
   }
@@ -181,8 +185,11 @@ footerCharacterOrientation: right
               </div>
             </div>
 
-            <!-- Bottom controls: Back to top sits below the expanded photos -->
-            <div class="d-flex align-items-center mt-2">
+            <!-- Bottom controls: Hide photos + Back to top below the expanded photos -->
+            <div class="d-flex align-items-center gap-2 mt-2">
+              <button type="button" class="btn btn-outline-primary" data-close-details>
+                Skrýt fotky
+              </button>
               <a href="#top" class="btn btn-outline-secondary">Zpět nahoru</a>
             </div>
           </details>
@@ -192,3 +199,15 @@ footerCharacterOrientation: right
     {% endfor %}
   </div>
 </section>
+
+<script>
+  // Close the open <details> when the bottom "Skrýt fotky" button is clicked
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('[data-close-details]');
+    if (!btn) return;
+    const details = btn.closest('details');
+    if (details) {
+      details.open = false;
+    }
+  });
+</script>
