@@ -1,0 +1,176 @@
+---
+layout: layouts/subpage-clean.njk
+title: "Galerie"
+description: "Fotogalerie z představení Divadla Láryfáry."
+keywords: "galerie, fotky, představení, Divadlo Láryfáry"
+permalink: "/galerie.html"
+pageTitle: "Galerie představení"
+subtitle: "fotky z našich pohádek"
+breadcrumbs:
+  - title: "Úvod"
+    url: "./"
+  - title: "Galerie"
+footerCharacterImage: images/repertoar-footer-character.jpg
+footerHeightClass: footer-height-extra-tall
+footerCharacterOrientation: right
+---
+
+<a id="top" class="visually-hidden" aria-hidden="true"></a>
+
+<!-- Subpage Header -->
+<section class="subpage-header py-5">
+  <div class="container content-gutter">
+    <div class="row align-items-center">
+      <div class="col-lg-8">{% include "components/subpage-header.njk" %}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="pb-4">
+  <div class="container content-gutter">
+    <div class="row">
+      <div class="col-lg-8">
+        <article>
+          <p>
+            Vybrali jsme pro vás několik fotografií z našich představení. U každého představení jsou
+            dvě ukázkové fotografie a zbytek si můžete rozkliknout pomocí tlačítka.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optional polish: smooth anchors and offset for sticky headers */
+  html {
+    scroll-behavior: smooth;
+  }
+  [id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* Details/summary polish: hide default marker and toggle label */
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details .when-open {
+    display: none;
+  }
+  details[open] .when-open {
+    display: inline;
+  }
+  details[open] .when-closed {
+    display: none;
+  }
+
+  /* Keep controls on a single line; allow shrinking text before wrapping */
+  .gallery-controls {
+    gap: 0.5rem;
+  }
+  @media (min-width: 576px) {
+    .gallery-controls {
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<!-- Gallery Sections -->
+<section class="py-4">
+  <div class="container content-gutter">
+    {% set performances = [ { slug: 'ene-bene-erbene', title: 'Pohádka Ene Bene Erbene' }, { slug:
+    'cirkusacka', title: 'Cirkusácká pohádka' }, { slug: 'strasidelnem-nadrazi', title: 'Pohádka o
+    strašidelném nádraží' }, { slug: 'tri-namornici', title: 'Pohádka o třech námořnících' }, {
+    slug: 'kacenka-a-rarasek', title: 'Pohádka o Kačence a Raráškovi' }, { slug:
+    'indiani-ze-supliku', title: 'Indiáni ze šuplíku' }, { slug: 'kouzla-a-cary', title: 'Kouzla a
+    čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' } ] %} {% for perf in
+    performances %}
+    <div class="row mb-5" id="{{ perf.slug }}">
+      <div class="col-lg-8">
+        <h2 class="performance-primary-title h3">{{ perf.title }}</h2>
+
+        <!-- Always visible photos (2) -->
+        <div class="content-photos mb-3">
+          <div class="row row-cols-1 row-cols-lg-2 g-3">
+            <div class="col photo-item">
+              <img
+                src="images/besedy-foto-4.jpg"
+                alt="Ukázková fotografie 1 – {{ perf.title }}"
+                class="img-fluid"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="col photo-item">
+              <img
+                src="images/besedy-foto-4.jpg"
+                alt="Ukázková fotografie 2 – {{ perf.title }}"
+                class="img-fluid"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls row: toggle and back-to-top on one line -->
+        <div class="gallery-controls d-flex align-items-center flex-nowrap">
+          <!-- Collapsible more photos (example repeats same image) -->
+          <details class="me-2">
+            <summary class="btn btn-outline-primary">
+              <span class="when-closed">Zobrazit další fotky</span>
+              <span class="when-open">Skrýt fotky</span>
+            </summary>
+            <div class="content-photos mt-3">
+              <div class="row row-cols-1 row-cols-lg-2 g-3">
+                <div class="col photo-item">
+                  <img
+                    src="images/besedy-foto-4.jpg"
+                    alt="Další fotografie – {{ perf.title }}"
+                    class="img-fluid"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="col photo-item">
+                  <img
+                    src="images/besedy-foto-4.jpg"
+                    alt="Další fotografie – {{ perf.title }}"
+                    class="img-fluid"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="col photo-item">
+                  <img
+                    src="images/besedy-foto-4.jpg"
+                    alt="Další fotografie – {{ perf.title }}"
+                    class="img-fluid"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="col photo-item">
+                  <img
+                    src="images/besedy-foto-4.jpg"
+                    alt="Další fotografie – {{ perf.title }}"
+                    class="img-fluid"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <a href="#top" class="btn btn-sm btn-outline-secondary ms-auto">Zpět nahoru</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
