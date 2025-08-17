@@ -90,7 +90,9 @@ footerCharacterOrientation: right
     čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' } ] %} {% for perf in
     performances %}
     <div class="row mb-5" id="{{ perf.slug }}">
-      <div class="col-12">
+      <div
+        class="col-12 {% if loop.index % 2 == 0 %}bg-light rounded-3 py-4 px-3 px-md-4{% endif %}"
+      >
         <h2 class="performance-primary-title h3">{{ perf.title }}</h2>
 
         <!-- Always visible photos (2) with full-width 2-column layout -->
@@ -121,14 +123,15 @@ footerCharacterOrientation: right
           </div>
         </div>
 
-        <!-- Controls row: left-aligned toggle and back-to-top on one line -->
+        <!-- Controls row: left-aligned toggle; back-to-top moved below expanded photos -->
         <div class="gallery-controls d-flex align-items-center flex-nowrap">
           <!-- Collapsible more photos (example repeats same image) -->
-          <details class="me-2">
+          <details>
             <summary class="btn btn-outline-primary">
               <span class="when-closed">Zobrazit další fotky</span>
               <span class="when-open">Skrýt fotky</span>
             </summary>
+            <!-- Expanded photos: identical 2-column layout as leading photos -->
             <div class="content-photos content-photos-2 mt-3">
               <div class="row">
                 <div class="col-lg-6 col-md-6">
@@ -177,9 +180,12 @@ footerCharacterOrientation: right
                 </div>
               </div>
             </div>
-          </details>
 
-          <a href="#top" class="btn btn-outline-secondary">Zpět nahoru</a>
+            <!-- Bottom controls: Back to top sits below the expanded photos -->
+            <div class="d-flex align-items-center mt-2">
+              <a href="#top" class="btn btn-outline-secondary">Zpět nahoru</a>
+            </div>
+          </details>
         </div>
       </div>
     </div>
