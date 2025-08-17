@@ -90,34 +90,38 @@ footerCharacterOrientation: right
     čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' } ] %} {% for perf in
     performances %}
     <div class="row mb-5" id="{{ perf.slug }}">
-      <div class="col-lg-8">
+      <div class="col-12">
         <h2 class="performance-primary-title h3">{{ perf.title }}</h2>
 
-        <!-- Always visible photos (2) -->
-        <div class="content-photos mb-3">
-          <div class="row row-cols-1 row-cols-lg-2 g-3">
-            <div class="col photo-item">
-              <img
-                src="images/besedy-foto-4.jpg"
-                alt="Ukázková fotografie 1 – {{ perf.title }}"
-                class="img-fluid"
-                loading="lazy"
-                decoding="async"
-              />
+        <!-- Always visible photos (2) with full-width 2-column layout -->
+        <div class="content-photos content-photos-2 mb-3">
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <div class="photo-item">
+                <img
+                  src="images/nase-knihy-foto-1.jpg"
+                  alt="Ukázková fotografie 1 – {{ perf.title }}"
+                  class="img-fluid rounded shadow"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
-            <div class="col photo-item">
-              <img
-                src="images/besedy-foto-4.jpg"
-                alt="Ukázková fotografie 2 – {{ perf.title }}"
-                class="img-fluid"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="col-lg-6 col-md-6">
+              <div class="photo-item">
+                <img
+                  src="images/nase-knihy-foto-1.jpg"
+                  alt="Ukázková fotografie 2 – {{ perf.title }}"
+                  class="img-fluid rounded shadow"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Controls row: toggle and back-to-top on one line -->
+        <!-- Controls row: left-aligned toggle and back-to-top on one line -->
         <div class="gallery-controls d-flex align-items-center flex-nowrap">
           <!-- Collapsible more photos (example repeats same image) -->
           <details class="me-2">
@@ -125,49 +129,57 @@ footerCharacterOrientation: right
               <span class="when-closed">Zobrazit další fotky</span>
               <span class="when-open">Skrýt fotky</span>
             </summary>
-            <div class="content-photos mt-3">
-              <div class="row row-cols-1 row-cols-lg-2 g-3">
-                <div class="col photo-item">
-                  <img
-                    src="images/besedy-foto-4.jpg"
-                    alt="Další fotografie – {{ perf.title }}"
-                    class="img-fluid"
-                    loading="lazy"
-                    decoding="async"
-                  />
+            <div class="content-photos content-photos-2 mt-3">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                  <div class="photo-item">
+                    <img
+                      src="images/nase-knihy-foto-1.jpg"
+                      alt="Další fotografie – {{ perf.title }}"
+                      class="img-fluid rounded shadow"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-                <div class="col photo-item">
-                  <img
-                    src="images/besedy-foto-4.jpg"
-                    alt="Další fotografie – {{ perf.title }}"
-                    class="img-fluid"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                <div class="col-lg-6 col-md-6">
+                  <div class="photo-item">
+                    <img
+                      src="images/nase-knihy-foto-1.jpg"
+                      alt="Další fotografie – {{ perf.title }}"
+                      class="img-fluid rounded shadow"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-                <div class="col photo-item">
-                  <img
-                    src="images/besedy-foto-4.jpg"
-                    alt="Další fotografie – {{ perf.title }}"
-                    class="img-fluid"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                <div class="col-lg-6 col-md-6">
+                  <div class="photo-item">
+                    <img
+                      src="images/nase-knihy-foto-1.jpg"
+                      alt="Další fotografie – {{ perf.title }}"
+                      class="img-fluid rounded shadow"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-                <div class="col photo-item">
-                  <img
-                    src="images/besedy-foto-4.jpg"
-                    alt="Další fotografie – {{ perf.title }}"
-                    class="img-fluid"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                <div class="col-lg-6 col-md-6">
+                  <div class="photo-item">
+                    <img
+                      src="images/nase-knihy-foto-1.jpg"
+                      alt="Další fotografie – {{ perf.title }}"
+                      class="img-fluid rounded shadow"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </details>
 
-          <a href="#top" class="btn btn-sm btn-outline-secondary ms-auto">Zpět nahoru</a>
+          <a href="#top" class="btn btn-outline-secondary">Zpět nahoru</a>
         </div>
       </div>
     </div>
