@@ -4,7 +4,7 @@ title: "Galerie"
 description: "Fotogalerie z představení Divadla Láryfáry."
 keywords: "galerie, fotky, představení, Divadlo Láryfáry"
 permalink: "/galerie.html"
-pageTitle: "Galerie představení"
+pageTitle: "Galerie"
 subtitle: "fotky z našich pohádek"
 breadcrumbs:
   - title: "Úvod"
@@ -42,53 +42,6 @@ footerCharacterOrientation: right
   </div>
 </section>
 
-<style>
-  /* Optional polish: smooth anchors and offset for sticky headers */
-  html {
-    scroll-behavior: smooth;
-  }
-  [id] {
-    scroll-margin-top: 80px;
-  }
-
-  /* Details/summary polish: hide default marker and toggle label */
-  details > summary::-webkit-details-marker {
-    display: none;
-  }
-  details > summary {
-    list-style: none;
-  }
-  /* When open, hide the top summary to avoid duplicate controls */
-  details[open] > summary {
-    display: none;
-  }
-  details .when-open {
-    display: none;
-  }
-  details[open] .when-open {
-    display: inline;
-  }
-  details[open] .when-closed {
-    display: none;
-  }
-
-  /* Keep controls on a single line; allow shrinking text before wrapping */
-  .gallery-controls {
-    gap: 0.5rem;
-  }
-  @media (min-width: 576px) {
-    .gallery-controls {
-      gap: 0.75rem;
-    }
-  }
-
-  /* Remove outer margins when stitching two photo grids together */
-  .content-photos.no-gap {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-</style>
-
 <!-- Gallery Sections -->
 <section class="py-4">
   <div class="container content-gutter">
@@ -97,16 +50,30 @@ footerCharacterOrientation: right
     strašidelném nádraží' }, { slug: 'tri-namornici', title: 'Pohádka o třech námořnících' }, {
     slug: 'kacenka-a-rarasek', title: 'Pohádka o Kačence a Raráškovi' }, { slug:
     'indiani-ze-supliku', title: 'Indiáni ze šuplíku' }, { slug: 'kouzla-a-cary', title: 'Kouzla a
-    čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' } ] %} {% for perf in
-    performances %}
+    čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' } ] %} {% set
+    perfThumbs = { 'ene-bene-erbene': 'images/repertoar-ene-bene.jpg', 'cirkusacka':
+    'images/repertoar-cirkusacka.jpg', 'strasidelnem-nadrazi':
+    'images/repertoar-strasidelne-nadrazi.jpg', 'tri-namornici': 'images/repertoar-namornici.jpg',
+    'kacenka-a-rarasek': 'images/repertoar-o-kacence.jpg', 'indiani-ze-supliku':
+    'images/repertoar-indiani.jpg', 'kouzla-a-cary': 'images/repertoar-kouzla.jpg',
+    'strakate-bajky': 'images/repertoar-bajky.jpg' } %} {% for perf in performances %}
     <div class="row mb-5" id="{{ perf.slug }}">
       <div
         class="col-12 {% if loop.index % 2 == 0 %}bg-light rounded-3 py-4 px-3 px-md-4{% endif %}"
       >
-        <h2 class="performance-primary-title h3">{{ perf.title }}</h2>
+        <div class="performance-header d-flex align-items-center mb-3">
+          <img
+            src="{{ perfThumbs[perf.slug] }}"
+            alt="Miniatura – {{ perf.title }}"
+            class="performance-thumb"
+            loading="lazy"
+            decoding="async"
+          />
+          <h2 class="performance-primary-title h3 m-0">{{ perf.title }}</h2>
+        </div>
 
         <!-- Always visible photos (2) with full-width 2-column layout -->
-  <div class="content-photos content-photos-2 no-gap">
+        <div class="content-photos content-photos-2 no-gap">
           <div class="row">
             <div class="col-lg-6 col-md-6">
               <div class="photo-item">

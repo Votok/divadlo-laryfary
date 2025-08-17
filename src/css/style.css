@@ -1136,6 +1136,75 @@ p,
 }
 
 /* ==========================================
+   GALLERY PAGE (galerie.html) STYLES
+   Moved from inline <style> to global stylesheet
+   ========================================== */
+/* Global smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+/* Offset anchor scroll for sticky headers */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Details/summary polish: hide default marker and toggle label */
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary {
+  list-style: none;
+}
+/* When open, hide the top summary to avoid duplicate controls */
+details[open] > summary {
+  display: none;
+}
+details .when-open {
+  display: none;
+}
+details[open] .when-open {
+  display: inline;
+}
+details[open] .when-closed {
+  display: none;
+}
+
+/* Keep controls on a single line; allow shrinking text before wrapping */
+.gallery-controls {
+  gap: 0.5rem;
+}
+@media (min-width: 576px) {
+  .gallery-controls {
+    gap: 0.75rem;
+  }
+}
+
+/* Remove outer margins when stitching two photo grids together */
+.content-photos.no-gap {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Small performance thumbnail next to title */
+.performance-header {
+  gap: 0.75rem;
+}
+.performance-thumb {
+  width: 94px;
+  height: 94px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: none;
+  flex: 0 0 auto;
+}
+@media (max-width: 576px) {
+  .performance-thumb {
+    width: 73px;
+    height: 73px;
+  }
+}
+
+/* ==========================================
    SOCIAL SECTION
    ========================================== */
 
