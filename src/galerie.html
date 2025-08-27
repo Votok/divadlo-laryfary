@@ -72,31 +72,49 @@ footerCharacterOrientation: right
           <h2 class="performance-primary-title h3 m-0">{{ perf.title }}</h2>
         </div>
 
-        <!-- Always visible photos (2) with full-width 2-column layout -->
+        {% set galleryImages = { 'ene-bene-erbene': { preview:
+        ['pohadka-ene-bene-erbene-35.jpg','pohadka-ene-bene-erbene-36.jpg'], extra:
+        ['pohadka-ene-bene-erbene-37.jpg','pohadka-ene-bene-erbene-38.jpg','pohadka-ene-bene-erbene-39.jpg','pohadka-ene-bene-erbene-40.jpg']
+        }, 'cirkusacka': { preview: ['pohadka-cirkusacka-15.jpg','pohadka-cirkusacka-16.jpg'],
+        extra:
+        ['pohadka-cirkusacka-17.jpg','pohadka-cirkusacka-18.jpg','pohadka-cirkusacka-19.jpg','pohadka-cirkusacka-20.jpg']
+        }, 'strasidelnem-nadrazi': { preview:
+        ['pohadka-o-strasidelnem-nadrazi-55.jpg','pohadka-o-strasidelnem-nadrazi-56.jpg'], extra:
+        ['pohadka-o-strasidelnem-nadrazi-57.jpg','pohadka-o-strasidelnem-nadrazi-58.jpg','pohadka-o-strasidelnem-nadrazi-59.jpg','pohadka-o-strasidelnem-nadrazi-60.jpg']
+        }, 'tri-namornici': { preview:
+        ['pohadka-o-trech-namornicich-65.jpg','pohadka-o-trech-namornicich-66.jpg'], extra:
+        ['pohadka-o-trech-namornicich-67.jpg','pohadka-o-trech-namornicich-68.jpg','pohadka-o-trech-namornicich-69.jpg','pohadka-o-trech-namornicich-70.jpg']
+        }, 'kacenka-a-rarasek': { preview:
+        ['pohadka-o-kacence-a-raraskovi-45.jpg','pohadka-o-kacence-a-raraskovi-46.jpg'], extra:
+        ['pohadka-o-kacence-a-raraskovi-47.jpg','pohadka-o-kacence-a-raraskovi-48.jpg','pohadka-o-kacence-a-raraskovi-49.jpg','pohadka-o-kacence-a-raraskovi-50.jpg']
+        }, 'indiani-ze-supliku': { preview:
+        ['pohadka-indiani-ze-supliku-25.jpg','pohadka-indiani-ze-supliku-26.jpg'], extra:
+        ['pohadka-indiani-ze-supliku-27.jpg','pohadka-indiani-ze-supliku-28.jpg','pohadka-indiani-ze-supliku-29.jpg','pohadka-indiani-ze-supliku-30.jpg']
+        }, 'kouzla-a-cary': { preview:
+        ['pohadka-kouzla-a-cary-tajemne-prahy-5.jpg','pohadka-kouzla-a-cary-tajemne-prahy-6.jpg'],
+        extra:
+        ['pohadka-kouzla-a-cary-tajemne-prahy-7.jpg','pohadka-kouzla-a-cary-tajemne-prahy-8.jpg','pohadka-kouzla-a-cary-tajemne-prahy-9.jpg','pohadka-kouzla-a-cary-tajemne-prahy-10.jpg']
+        }, 'strakate-bajky': { preview:
+        ['pohadka-strakate-bajky-75.jpg','pohadka-strakate-bajky-76.jpg'], extra:
+        ['pohadka-strakate-bajky-77.jpg','pohadka-strakate-bajky-78.jpg','pohadka-strakate-bajky-79.jpg','pohadka-strakate-bajky-80.jpg']
+        } } %} {% set images = galleryImages[perf.slug] %}
+
+        <!-- Always visible photos (2) from the galleryImages set -->
         <div class="content-photos content-photos-2 no-gap">
           <div class="row">
+            {% for img in images.preview %}
             <div class="col-lg-6 col-md-6">
               <div class="photo-item">
                 <img
-                  src="images/nase-knihy-foto-1.jpg"
-                  alt="Ukázková fotografie 1 – {{ perf.title }}"
+                  src="images/{{ img }}"
+                  alt="{{ perf.title }} – fotografie {{ loop.index }}"
                   class="img-fluid rounded"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-              <div class="photo-item">
-                <img
-                  src="images/nase-knihy-foto-1.jpg"
-                  alt="Ukázková fotografie 2 – {{ perf.title }}"
-                  class="img-fluid rounded"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
 
@@ -108,53 +126,22 @@ footerCharacterOrientation: right
               <span class="when-closed">Zobrazit další fotky</span>
               <span class="when-open">Skrýt fotky</span>
             </summary>
-            <!-- Expanded photos: identical 2-column layout as leading photos -->
+            <!-- Expanded photos: remaining 4 from galleryImages -->
             <div class="content-photos content-photos-2 no-gap">
               <div class="row">
+                {% for img in images.extra %}
                 <div class="col-lg-6 col-md-6">
                   <div class="photo-item">
                     <img
-                      src="images/nase-knihy-foto-1.jpg"
-                      alt="Další fotografie – {{ perf.title }}"
+                      src="images/{{ img }}"
+                      alt="{{ perf.title }} – fotografie {{ loop.index + 2 }}"
                       class="img-fluid rounded"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="photo-item">
-                    <img
-                      src="images/nase-knihy-foto-1.jpg"
-                      alt="Další fotografie – {{ perf.title }}"
-                      class="img-fluid rounded"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="photo-item">
-                    <img
-                      src="images/nase-knihy-foto-1.jpg"
-                      alt="Další fotografie – {{ perf.title }}"
-                      class="img-fluid rounded"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="photo-item">
-                    <img
-                      src="images/nase-knihy-foto-1.jpg"
-                      alt="Další fotografie – {{ perf.title }}"
-                      class="img-fluid rounded"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
 
