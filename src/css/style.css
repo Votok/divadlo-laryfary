@@ -1515,8 +1515,6 @@ details[open] .when-closed {
   /* Badge positioning on mobile */
   .subpage-header .performance-badge {
     margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -2470,6 +2468,16 @@ details[open] .when-closed {
 /* Performance sidebar image */
 .performance-image-sidebar img {
   width: 100%;
+}
+
+/* Utility: shift element upward on desktop only (used for specific performance image needs) */
+@media (min-width: 1150px) {
+  .shift-up-desktop-80 {
+    margin-top: -80px;
+  }
+  .shift-up-desktop-120 {
+    margin-top: -120px;
+  }
 }
 
 /* Responsive adjustments for performance detail pages */
