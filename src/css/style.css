@@ -995,7 +995,7 @@ p,
 
 @media (max-width: 576px) {
   .quote-box {
-    padding: 3rem 1.5rem;
+    padding: 3rem;
   }
 
   .quote-box p::before {
