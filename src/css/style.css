@@ -915,6 +915,12 @@ p,
   text-align: center;
 }
 
+/* Variant: quote box used as simple motto without background */
+.quote-box.no-bg {
+  background: none !important;
+  box-shadow: none !important;
+}
+
 .quote-box p {
   position: relative;
   width: fit-content;
