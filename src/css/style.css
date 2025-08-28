@@ -1190,7 +1190,7 @@ details[open] .when-closed {
   gap: 0.75rem;
 }
 .performance-thumb {
-  width: 94px;
+  width: 132px;
   height: 94px;
   object-fit: cover;
   border-radius: var(--border-radius-md);
@@ -1199,7 +1199,7 @@ details[open] .when-closed {
 }
 @media (max-width: 576px) {
   .performance-thumb {
-    width: 73px;
+    width: 103px;
     height: 73px;
   }
 }
