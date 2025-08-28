@@ -2216,6 +2216,10 @@ details[open] .when-closed {
   min-height: 1050px;
 }
 
+.custom-footer.footer-height-extra-extra-tall {
+  min-height: 1250px;
+}
+
 /* Responsive adjustments for footer height modifiers */
 @media (max-width: 1024px) {
   .custom-footer.footer-height-compact {
