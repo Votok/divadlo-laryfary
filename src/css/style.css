@@ -1854,7 +1854,6 @@ details[open] .when-closed {
   left: 0; /* Character on the left */
   z-index: 1;
   width: 50%;
-  /* max-width: 580px; */
   line-height: 0;
 }
 
@@ -1874,7 +1873,6 @@ details[open] .when-closed {
   right: 0; /* Character on the right */
   z-index: 1;
   width: 50%;
-  /* max-width: 580px; */
   line-height: 0;
 }
 
