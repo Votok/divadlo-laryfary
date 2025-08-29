@@ -1,0 +1,10 @@
+{
+  "name": "Divadlo Láryfáry",
+  "shortName": "Láryfáry",
+  "url": "https://www.divadlolaryfary.cz",
+  "description": "Divadlo Láryfáry - pražské profesionální autorské divadlo zaměřené na dětského diváka.",
+  "locale": "cs_CZ",
+  "twitter": "@",
+  "themeColor": "#e93578",
+  "ogImage": "/images/og-default.jpg"
+}

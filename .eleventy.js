@@ -26,6 +26,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/css/"); // Watch CSS for changes
   eleventyConfig.addPassthroughCopy("./src/css"); // Copy CSS directly
   eleventyConfig.addPassthroughCopy("./src/images"); // Copy images directly
+  // Root static assets (favicons, etc.)
+  eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
+  // If other favicon files (png, ico) exist in src root, copy them
+  ["favicon.ico", "apple-touch-icon.png"].forEach((f) => {
+    const full = path.join(__dirname, "src", f);
+    if (fs.existsSync(full)) {
+      eleventyConfig.addPassthroughCopy({ ["src/" + f]: f });
+    }
+  });
 
   // Helper to read a file's contents (used to feed CSS into the bundle)
   eleventyConfig.addFilter("readFile", function (filePath) {

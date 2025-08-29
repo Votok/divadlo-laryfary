@@ -8,14 +8,46 @@
     <meta name="keywords" content="{{ keywords or 'dětské divadlo, divadlo pro děti, představení, dětské hry, divadlo Láryfáry, pohádka, pohádky, dětské představení' }}" />
     <meta name="author" content="Jan Votoček" />
 
+    {# Open Graph & Twitter #}
+    {% if title %}{% set ogTitle = title + ' - Divadlo Láryfáry' %}{% else %}{% set ogTitle = 'Divadlo Láryfáry' %}{% endif %}
+    {% set ogDescription = description or 'Divadlo Láryfáry - pražské profesionální autorské divadlo zaměřené na dětského diváka.' %}
+    {% if not ogImage %}{% set ogImage = site.ogImage %}{% endif %}
+    {% if ogImage %}
+      {% if ogImage | first == '/' %}
+        {% set absOgImage = site.url + ogImage %}
+      {% elseif '://' in ogImage %}
+        {% set absOgImage = ogImage %}
+      {% else %}
+        {% set absOgImage = site.url + '/' + ogImage %}
+      {% endif %}
+    {% endif %}
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:title" content="{{ ogTitle }}" />
+    <meta property="og:description" content="{{ ogDescription }}" />
+    <meta property="og:type" content="website" />
+    {% if page and page.url %}<meta property="og:url" content="{{ site.url }}{{ page.url }}" />{% endif %}
+  {% if absOgImage %}
+  <meta property="og:image" content="{{ absOgImage }}" />
+  <meta property="og:image:alt" content="{{ ogTitle }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  {% endif %}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ ogTitle }}" />
+    <meta name="twitter:description" content="{{ ogDescription }}" />
+    {% if absOgImage %}<meta name="twitter:image" content="{{ absOgImage }}" />{% endif %}
+    {% if site.twitter and site.twitter != '@' %}<meta name="twitter:site" content="{{ site.twitter }}" />{% endif %}
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   {# Bundle: write CSS to a hashed file and include it #}
   <link rel="stylesheet" href="{% getBundleFileUrl 'css' %}" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Favicon (SVG). Optionally add PNG + ICO variants later -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#e93578" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
