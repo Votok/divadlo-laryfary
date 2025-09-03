@@ -2752,3 +2752,101 @@ details[open] .when-closed {
 /* ==========================================
    END OF PROMOTIONAL MATERIALS
    ========================================== */
+
+/* ==========================================
+   BOTTOM NAVIGATION STRIP
+   ========================================== */
+.bottom-nav {
+  background: #f2f2f2;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.bottom-nav-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+
+.bottom-nav-link {
+  color: var(--dark-color);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-fast);
+  line-height: 1.2;
+}
+
+.bottom-nav-link:hover,
+.bottom-nav-link:focus-visible {
+  background: #e6e6e6;
+  outline: none;
+}
+
+.bottom-nav-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Stack links vertically on very small screens */
+@media (max-width: 520px) {
+  .bottom-nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+  .bottom-nav-link {
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Scroll To Top Button */
+.scroll-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-md);
+  z-index: 999;
+}
+
+.scroll-to-top:hover {
+  background: #d02860;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+  .scroll-to-top {
+    width: 44px;
+    height: 44px;
+    right: 0.85rem;
+    bottom: 0.85rem;
+  }
+}
