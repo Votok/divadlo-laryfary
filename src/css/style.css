@@ -24,7 +24,6 @@
   /* Performance schedule colors */
   --performance-strip-bg: var(--primary-light-color);
   --performance-strip-border: var(--primary-color);
-  --performance-strip-hover-shadow: rgba(0, 0, 0, 0.1);
   --performance-date-color: #495057;
   --performance-title-color: #212529;
   --performance-venue-color: #6c757d;
@@ -1752,11 +1751,6 @@ details[open] .when-closed {
   transition: var(--transition-base);
 }
 
-.performance-strip:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--performance-strip-hover-shadow);
-}
-
 .performance-date {
   font-family: var(--font-performance-date);
   font-weight: 600;
@@ -1795,6 +1789,45 @@ details[open] .when-closed {
   border-color: var(--performance-tickets-hover-bg);
   color: white;
   transform: translateY(-1px);
+}
+
+/* Inline SVG icon support for ticket button variants (no extra HTTP requests) */
+.btn-tickets {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.btn-tickets::before {
+  content: "";
+  width: 1.05em;
+  height: 1.05em;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.15));
+}
+
+/* Direct purchase (ticket) icon */
+.btn-ticket-direct::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2' stroke='%23fff' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z'/%3E%3Cpath d='M8 10h.01M8 14h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01'/%3E%3C/svg%3E");
+}
+
+/* Programme calendar icon */
+.btn-ticket-program::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2' stroke='%23fff' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 3v4M8 3v4M3 11h18'/%3E%3Cpath d='M8 15h2v2H8z' fill='%23fff' stroke='none'/%3E%3C/svg%3E");
+}
+
+/* Slight color differentiation (optional; can be removed for uniform look) */
+.btn-ticket-program {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.btn-ticket-program:hover {
+  background-color: #007697;
+  border-color: #007697;
 }
 
 .month-section {
