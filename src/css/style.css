@@ -58,8 +58,8 @@
   --font-size-secondary-headline-mobile: 1.75rem; /* 28px */
   --font-size-body: 1.125rem; /* 18px */
   --font-size-quote: 1.5rem; /* 24px */
-  --font-size-navbar-brand: 2rem; /* 32px */
-  --font-size-navbar-brand-mobile: 1.5rem; /* 24px */
+  --font-size-navbar-brand: 2.8rem; /* 44.8px */
+  --font-size-navbar-brand-mobile: 2rem; /* 32px */
   --font-size-small: 0.9rem; /* 14.4px */
   --font-size-quote-symbol: 4rem; /* 64px */
   --font-size-light-text: 0.8em; /* relative to parent */
@@ -376,7 +376,7 @@ p,
   font-size: var(--font-size-navbar-brand);
   font-weight: 700;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
 }
 
 .navbar-toggler {
@@ -442,7 +442,7 @@ p,
 
   .navbar-brand {
     font-size: var(--font-size-navbar-brand-mobile);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     order: 1;
   }
 
