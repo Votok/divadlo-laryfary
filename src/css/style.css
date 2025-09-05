@@ -1765,6 +1765,20 @@ details[open] .when-closed {
   margin-bottom: 0.25rem;
 }
 
+/* Ensure linked performance titles look like plain text headings */
+.performance-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.performance-title a:hover,
+.performance-title a:focus {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
 .performance-venue {
   font-family: var(--font-performance-venue);
   color: var(--performance-venue-color);
