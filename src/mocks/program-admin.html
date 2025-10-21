@@ -1,444 +1,737 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Generátor programu – Divadlo Láryfáry</title>
-  <style>
-    :root { color-scheme: light dark; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; }
-    header { padding: 16px; background: #0d6efd; color: #fff; }
-    main { padding: 16px; max-width: 1100px; margin: 0 auto; }
-    h1 { font-size: 1.5rem; margin: 0; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 960px) { .grid { grid-template-columns: 1fr 1fr; } }
-    section { background: rgba(0,0,0,0.03); padding: 16px; border-radius: 8px; }
-    label { display: block; font-weight: 600; margin: 10px 0 6px; }
-    input[type="text"], input[type="date"], select, textarea { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.2); background: #fff; color: inherit; }
-    textarea { min-height: 120px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 0.9rem; }
-    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #0d6efd; background: #0d6efd; color: #fff; padding: 8px 12px; border-radius: 6px; cursor: pointer; text-decoration: none; }
-    .btn.secondary { background: transparent; color: #0d6efd; }
-    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-    .muted { color: #666; }
-    .list { border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; background: #fff; }
-    .list table { width: 100%; border-collapse: collapse; }
-    .list th, .list td { padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.06); text-align: left; vertical-align: top; }
-    .list th { background: rgba(0,0,0,0.04); font-weight: 700; }
-    .badge { display: inline-block; padding: 2px 6px; font-size: 0.75rem; border-radius: 999px; border: 1px solid currentColor; }
-    .badge.program { color: #0d6efd; }
-    .badge.direct { color: #198754; }
-    .badge.none { color: #6c757d; }
-    .code { background: #0b1020; color: #e6edf3; padding: 12px; border-radius: 8px; overflow: auto; }
-    .code pre { margin: 0; font-size: 0.85rem; }
-    .small { font-size: 0.85rem; }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Generátor programu – Divadlo Láryfáry</h1>
-    <p class="small" style="margin-top: 6px; opacity: 0.9;">Otevřete lokálně v prohlížeči. Vytvořte přehled představení a zkopírujte HTML pro vložení do program.html.</p>
-  </header>
-  <main>
-    <section aria-labelledby="s-howto">
-      <h2 id="s-howto">Jak používat</h2>
-      <ol class="small">
-        <li>Volitelně načtěte stávající HTML (vložením nebo nahráním souboru) – seznam se naplní.</li>
-        <li>Přidejte nebo upravte představení, případně je seřaďte.</li>
-        <li>Vpravo dole zkopírujte vygenerované HTML a vložte do části <code>&lt;div class="program-schedule content-gutter"&gt;…</code> v souboru <code>program.html</code>.</li>
-      </ol>
-    </section>
-
-    <div class="grid">
-      <section aria-labelledby="s-import">
-        <h2 id="s-import">Načíst stávající HTML</h2>
-        <label for="htmlPaste">Vložit HTML (volitelné)</label>
-        <textarea id="htmlPaste" placeholder="Sem vložte existující HTML program-schedule…"></textarea>
-        <div class="row" style="margin-top:8px;">
-          <input type="file" id="htmlFile" accept=".html,.htm,text/html" />
-          <button class="btn secondary" id="btnImport">Načíst</button>
-        </div>
-        <p class="muted small" style="margin-top:8px;">Přijímá celou sekci nebo jen vnitřek s položkami. Tlačítka budou rozpoznána podle tříd <code>btn-ticket-program</code> / <code>btn-ticket-direct</code>.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generátor programu – Divadlo Láryfáry</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue",
+          Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+      }
+      header {
+        padding: 16px;
+        background: #0d6efd;
+        color: #fff;
+      }
+      main {
+        padding: 16px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      h2 {
+        font-size: 1.25rem;
+        margin-top: 2rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      @media (min-width: 960px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      section {
+        background: rgba(0, 0, 0, 0.03);
+        padding: 16px;
+        border-radius: 8px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin: 10px 0 6px;
+      }
+      input[type="text"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background: #fff;
+        color: inherit;
+      }
+      textarea {
+        min-height: 120px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        font-size: 0.9rem;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #0d6efd;
+        background: #0d6efd;
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn.secondary {
+        background: transparent;
+        color: #0d6efd;
+      }
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .muted {
+        color: #666;
+      }
+      .list {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .list table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .list th,
+      .list td {
+        padding: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+        vertical-align: top;
+      }
+      .list th {
+        background: rgba(0, 0, 0, 0.04);
+        font-weight: 700;
+      }
+      .badge {
+        display: inline-block;
+        padding: 2px 6px;
+        font-size: 0.75rem;
+        border-radius: 999px;
+        border: 1px solid currentColor;
+      }
+      .badge.program {
+        color: #0d6efd;
+      }
+      .badge.direct {
+        color: #198754;
+      }
+      .badge.none {
+        color: #6c757d;
+      }
+      .code {
+        background: #0b1020;
+        color: #e6edf3;
+        padding: 12px;
+        border-radius: 8px;
+        overflow: auto;
+      }
+      .code pre {
+        margin: 0;
+        font-size: 0.85rem;
+      }
+      .small {
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Generátor programu – Divadlo Láryfáry</h1>
+      <p class="small" style="margin-top: 6px; opacity: 0.9">
+        Otevřete lokálně v prohlížeči. Vytvořte přehled představení a zkopírujte HTML pro vložení do
+        program.html.
+      </p>
+    </header>
+    <main>
+      <section aria-labelledby="s-howto">
+        <h2 id="s-howto">Jak používat</h2>
+        <ol class="small">
+          <li>
+            Volitelně načtěte stávající HTML (vložením nebo nahráním souboru) – seznam se naplní.
+          </li>
+          <li>Přidejte nebo upravte představení, případně je seřaďte.</li>
+          <li>
+            Vpravo dole zkopírujte vygenerované HTML a vložte do části
+            <code>&lt;div class="program-schedule content-gutter"&gt;…</code> v souboru
+            <code>program.html</code>.
+          </li>
+        </ol>
       </section>
 
-      <section aria-labelledby="s-form">
-        <h2 id="s-form">Přidat / upravit představení</h2>
-        <form id="perfForm">
-          <input type="hidden" id="perfId" />
-          <label for="perfDate">Datum</label>
-          <input type="date" id="perfDate" required />
-
-          <label for="perfTime">Čas (volitelné; např. 9:00 a 10:30)</label>
-          <input type="text" id="perfTime" placeholder="např. 16:00 nebo 9:00 a 10:30" />
-
-          <label for="perfShow">Představení</label>
-          <select id="perfShow" required></select>
-
-          <label for="perfVenue">Místo (sál, město)</label>
-          <input type="text" id="perfVenue" required placeholder="např. Komorní divadlo Kalich, Praha" />
-
-          <label for="perfLinkType">Tlačítko</label>
-          <select id="perfLinkType">
-            <option value="none">Není</option>
-            <option value="program">Program</option>
-            <option value="direct">Přímý nákup</option>
-          </select>
-
-          <label for="perfLinkUrl">Odkaz (URL)</label>
-          <input type="text" id="perfLinkUrl" placeholder="https://…" />
-
-          <div class="row" style="margin-top:12px;">
-            <button type="submit" class="btn" id="btnSave">Přidat do seznamu</button>
-            <button type="button" class="btn secondary" id="btnReset">Vyčistit formulář</button>
+      <div class="grid">
+        <section aria-labelledby="s-import">
+          <h2 id="s-import">Načíst stávající HTML</h2>
+          <label for="htmlPaste">Vložit HTML (volitelné)</label>
+          <textarea
+            id="htmlPaste"
+            placeholder="Sem vložte existující HTML program-schedule…"
+          ></textarea>
+          <div class="row" style="margin-top: 8px">
+            <input type="file" id="htmlFile" accept=".html,.htm,text/html" />
+            <button class="btn secondary" id="btnImport">Načíst</button>
           </div>
-        </form>
-        <p id="formMsg" class="small muted" style="margin-top:8px;"></p>
+          <p class="muted small" style="margin-top: 8px">
+            Přijímá celou sekci nebo jen vnitřek s položkami. Tlačítka budou rozpoznána podle tříd
+            <code>btn-ticket-program</code> / <code>btn-ticket-direct</code>.
+          </p>
+        </section>
+
+        <section aria-labelledby="s-form">
+          <h2 id="s-form">Přidat / upravit představení</h2>
+          <form id="perfForm">
+            <input type="hidden" id="perfId" />
+            <label for="perfDate">Datum</label>
+            <input type="date" id="perfDate" required />
+
+            <label for="perfTime">Čas (volitelné; např. 9:00 a 10:30)</label>
+            <input type="text" id="perfTime" placeholder="např. 16:00 nebo 9:00 a 10:30" />
+
+            <label for="perfShow">Představení</label>
+            <select id="perfShow" required></select>
+
+            <label for="perfVenue">Místo (sál, město)</label>
+            <input
+              type="text"
+              id="perfVenue"
+              required
+              placeholder="např. Komorní divadlo Kalich, Praha"
+            />
+
+            <label for="perfLinkType">Tlačítko</label>
+            <select id="perfLinkType">
+              <option value="none">Není</option>
+              <option value="program">Program</option>
+              <option value="direct">Přímý nákup</option>
+            </select>
+
+            <label for="perfLinkUrl">Odkaz (URL)</label>
+            <input type="text" id="perfLinkUrl" placeholder="https://…" />
+
+            <div class="row" style="margin-top: 12px">
+              <button type="submit" class="btn" id="btnSave">Přidat do seznamu</button>
+              <button type="button" class="btn secondary" id="btnReset">Vyčistit formulář</button>
+            </div>
+          </form>
+          <p id="formMsg" class="small muted" style="margin-top: 8px"></p>
+        </section>
+      </div>
+
+      <section aria-labelledby="s-list">
+        <h2 id="s-list">Seznam představení</h2>
+        <div class="list" id="perfList">
+          <table>
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Představení</th>
+                <th>Místo</th>
+                <th>Tlačítko</th>
+                <th style="width: 180px">Akce</th>
+              </tr>
+            </thead>
+            <tbody id="perfTbody">
+              <tr>
+                <td colspan="5" class="muted">Zatím žádné položky.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
-    </div>
 
-    <section aria-labelledby="s-list">
-      <h2 id="s-list">Seznam představení</h2>
-      <div class="list" id="perfList">
-        <table>
-          <thead>
-            <tr>
-              <th>Datum</th>
-              <th>Představení</th>
-              <th>Místo</th>
-              <th>Tlačítko</th>
-              <th style="width:180px;">Akce</th>
-            </tr>
-          </thead>
-          <tbody id="perfTbody">
-            <tr><td colspan="5" class="muted">Zatím žádné položky.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <section aria-labelledby="s-preview">
+        <h2 id="s-preview">Vygenerované HTML</h2>
+        <div class="code">
+          <pre id="htmlOut"><!-- HTML ukázka bude vygenerována po přidání položek --></pre>
+        </div>
+        <div class="row" style="margin-top: 8px">
+          <button class="btn" id="btnCopy" disabled>Zkopírovat HTML</button>
+          <button class="btn secondary" id="btnExportJson">Export JSON</button>
+          <label class="btn secondary" style="margin: 0">
+            Import JSON
+            <input type="file" id="jsonFile" accept="application/json" style="display: none" />
+          </label>
+        </div>
+      </section>
+    </main>
 
-    <section aria-labelledby="s-preview">
-      <h2 id="s-preview">Vygenerované HTML</h2>
-      <div class="code"><pre id="htmlOut"><!-- HTML ukázka bude vygenerována po přidání položek --></pre></div>
-      <div class="row" style="margin-top:8px;">
-        <button class="btn" id="btnCopy" disabled>Zkopírovat HTML</button>
-        <button class="btn secondary" id="btnExportJson">Export JSON</button>
-        <label class="btn secondary" style="margin:0;">
-          Import JSON
-          <input type="file" id="jsonFile" accept="application/json" style="display:none;" />
-        </label>
-      </div>
-    </section>
-  </main>
+    <script>
+      // 8 představení – přesná URL dle webu
+      /** @type {{key:string,label:string,href:string}[]} */
+      const SHOWS = [
+        { key: "cirkusacka", label: "Cirkusácká pohádka", href: "pohadka-cirkusacka.html" },
+        { key: "ene-bene-erbene", label: "Ene bene erbene", href: "pohadka-ene-bene-erbene.html" },
+        {
+          key: "indiani-ze-supliku",
+          label: "Indiáni ze šuplíku",
+          href: "pohadka-indiani-ze-supliku.html",
+        },
+        {
+          key: "praha",
+          label: "Kouzla a čáry tajemné Prahy",
+          href: "pohadka-kouzla-a-cary-tajemne-prahy.html",
+        },
+        {
+          key: "kacenka-a-raraskovi",
+          label: "O Kačence a Raráškovi",
+          href: "pohadka-o-kacence-a-raraskovi.html",
+        },
+        {
+          key: "strasidlo",
+          label: "Pohádka o strašidelném nádraží",
+          href: "pohadka-o-strasidelnem-nadrazi.html",
+        },
+        {
+          key: "namornici",
+          label: "Pohádka o třech námořnících",
+          href: "pohadka-o-trech-namornicich.html",
+        },
+        { key: "strakate-bajky", label: "Strakaté bajky", href: "pohadka-strakate-bajky.html" },
+      ];
 
-  <script>
-    // 8 představení – přesná URL dle webu
-    /** @type {{key:string,label:string,href:string}[]} */
-    const SHOWS = [
-      { key: 'cirkusacka', label: 'Cirkusácká pohádka', href: 'pohadka-cirkusacka.html' },
-      { key: 'ene-bene-erbene', label: 'Ene bene erbene', href: 'pohadka-ene-bene-erbene.html' },
-      { key: 'indiani-ze-supliku', label: 'Indiáni ze šuplíku', href: 'pohadka-indiani-ze-supliku.html' },
-      { key: 'praha', label: 'Kouzla a čáry tajemné Prahy', href: 'pohadka-kouzla-a-cary-tajemne-prahy.html' },
-      { key: 'kacenka-a-raraskovi', label: 'O Kačence a Raráškovi', href: 'pohadka-o-kacence-a-raraskovi.html' },
-      { key: 'strasidlo', label: 'Pohádka o strašidelném nádraží', href: 'pohadka-o-strasidelnem-nadrazi.html' },
-      { key: 'namornici', label: 'Pohádka o třech námořnících', href: 'pohadka-o-trech-namornicich.html' },
-      { key: 'strakate-bajky', label: 'Strakaté bajky', href: 'pohadka-strakate-bajky.html' },
-    ];
+      const SHOW_BY_KEY = Object.fromEntries(SHOWS.map((s) => [s.key, s]));
+      const SHOW_BY_HREF = Object.fromEntries(SHOWS.map((s) => [s.href, s]));
 
-    const SHOW_BY_KEY = Object.fromEntries(SHOWS.map(s => [s.key, s]));
-    const SHOW_BY_HREF = Object.fromEntries(SHOWS.map(s => [s.href, s]));
+      // České názvy měsíců
+      const MONTHS_CZ = [
+        "Leden",
+        "Únor",
+        "Březen",
+        "Duben",
+        "Květen",
+        "Červen",
+        "Červenec",
+        "Srpen",
+        "Září",
+        "Říjen",
+        "Listopad",
+        "Prosinec",
+      ];
 
-    // České názvy měsíců
-    const MONTHS_CZ = [
-      'Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'
-    ];
+      // Link typy → popisky a třídy tlačítek
+      const LINK_META = {
+        none: { text: "", class: "", title: "" },
+        program: {
+          text: "Program divadla",
+          class: "btn-tickets btn-ticket-program",
+          title: "Program pořadatelského divadla",
+        },
+        direct: {
+          text: "Koupit vstupenky",
+          class: "btn-tickets btn-ticket-direct",
+          title: "Přímý prodej vstupenek",
+        },
+      };
 
-    // Link typy → popisky a třídy tlačítek
-    const LINK_META = {
-      none: { text: '', class: '', title: '' },
-      program: { text: 'Program divadla', class: 'btn-tickets btn-ticket-program', title: 'Program pořadatelského divadla' },
-      direct: { text: 'Koupit vstupenky', class: 'btn-tickets btn-ticket-direct', title: 'Přímý prodej vstupenek' },
-    };
+      /**
+       * @typedef {Object} Performance
+       * @property {number} id
+       * @property {string} dateISO // YYYY-MM-DD
+       * @property {string} timeText // e.g., "9:00 a 10:30" or "16:00" or ""
+       * @property {string} titleKey // SHOWS.key
+       * @property {string} venue
+       * @property {'none'|'program'|'direct'} linkType
+       * @property {string} linkUrl
+       */
 
-    /**
-     * @typedef {Object} Performance
-     * @property {number} id
-     * @property {string} dateISO // YYYY-MM-DD
-     * @property {string} timeText // e.g., "9:00 a 10:30" or "16:00" or ""
-     * @property {string} titleKey // SHOWS.key
-     * @property {string} venue
-     * @property {'none'|'program'|'direct'} linkType
-     * @property {string} linkUrl
-     */
+      /** @type {Performance[]} */
+      let performances = [];
+      let nextId = 1;
 
-    /** @type {Performance[]} */
-    let performances = [];
-    let nextId = 1;
-
-    // Pomocné funkce
-    function pad(n) { return String(n).padStart(2, '0'); }
-    function formatDateCZ(iso) {
-      // bez nul: d.M.yyyy
-      const [y,m,d] = iso.split('-').map(Number);
-      return `${d}.${m}.${y}`;
-    }
-    function parseDateCZ(text) {
-      // "d.M.yyyy" → ISO
-      const m = text.trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
-      if (!m) return null;
-      const d = Number(m[1]);
-      const mo = Number(m[2]);
-      const y = Number(m[3]);
-      return `${y}-${pad(mo)}-${pad(d)}`;
-    }
-
-    // Inicializace UI – vyplnit select s představeními, navěsit posluchače
-    function init() {
-      const sel = document.getElementById('perfShow');
-      sel.innerHTML = '<option value="" disabled selected>— vyberte představení —</option>' +
-        SHOWS.map(s => `<option value="${s.key}">${escapeHtml(s.label)}</option>`).join('');
-
-      document.getElementById('perfLinkType').addEventListener('change', onLinkTypeChange);
-      document.getElementById('btnImport').addEventListener('click', onImportClick);
-      document.getElementById('perfForm').addEventListener('submit', onFormSubmit);
-      document.getElementById('btnReset').addEventListener('click', resetForm);
-      document.getElementById('btnCopy').addEventListener('click', copyHtml);
-      document.getElementById('jsonFile').addEventListener('change', onImportJson);
-      document.getElementById('btnExportJson').addEventListener('click', onExportJson);
-
-      onLinkTypeChange();
-      renderList();
-      renderHtml();
-    }
-
-    function onLinkTypeChange() {
-      const type = /** @type {HTMLSelectElement} */(document.getElementById('perfLinkType')).value;
-      const url = document.getElementById('perfLinkUrl');
-      const required = type === 'program' || type === 'direct';
-      url.disabled = !required;
-      url.placeholder = required ? 'https://…' : '—';
-    }
-
-    function escapeHtml(s) {
-      return String(s)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
-    }
-
-    // Formulář – přidání/uložení
-    function onFormSubmit(e) {
-      e.preventDefault();
-      const id = Number(document.getElementById('perfId').value || 0);
-      const dateISO = document.getElementById('perfDate').value.trim();
-      const timeText = document.getElementById('perfTime').value.trim();
-      const titleKey = document.getElementById('perfShow').value;
-      const venue = document.getElementById('perfVenue').value.trim();
-      const linkType = document.getElementById('perfLinkType').value || 'none';
-      const linkUrl = document.getElementById('perfLinkUrl').value.trim();
-
-      const msg = document.getElementById('formMsg');
-
-      if (!dateISO || !titleKey || !venue) {
-        msg.textContent = 'Vyplňte prosím datum, představení a místo.';
-        return;
+      // Pomocné funkce
+      function pad(n) {
+        return String(n).padStart(2, "0");
       }
-      if ((linkType === 'program' || linkType === 'direct') && !/^https?:\/\//i.test(linkUrl)) {
-        msg.textContent = 'Zadejte platnou URL (musí začínat http:// nebo https://), nebo zvolte „Není“.\u00A0';
-        return;
+      function formatDateCZ(iso) {
+        // bez nul: d.M.yyyy
+        const [y, m, d] = iso.split("-").map(Number);
+        return `${d}.${m}.${y}`;
       }
-      msg.textContent = '';
-
-      if (id) {
-        const i = performances.findIndex(p => p.id === id);
-        if (i >= 0) performances[i] = { id, dateISO, timeText, titleKey, venue, linkType, linkUrl };
-      } else {
-        performances.push({ id: nextId++, dateISO, timeText, titleKey, venue, linkType, linkUrl });
+      function parseDateCZ(text) {
+        // "d.M.yyyy" → ISO
+        const m = text.trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+        if (!m) return null;
+        const d = Number(m[1]);
+        const mo = Number(m[2]);
+        const y = Number(m[3]);
+        return `${y}-${pad(mo)}-${pad(d)}`;
       }
 
-      resetForm();
-      renderList();
-      renderHtml();
-      saveLocal();
-    }
+      // Inicializace UI – vyplnit select s představeními, navěsit posluchače
+      function init() {
+        const sel = document.getElementById("perfShow");
+        sel.innerHTML =
+          '<option value="" disabled selected>— vyberte představení —</option>' +
+          SHOWS.map((s) => `<option value="${s.key}">${escapeHtml(s.label)}</option>`).join("");
 
-    function resetForm() {
-      document.getElementById('perfForm').reset();
-      document.getElementById('perfId').value = '';
-      document.getElementById('btnSave').textContent = 'Přidat do seznamu';
-      onLinkTypeChange();
-      document.getElementById('formMsg').textContent = '';
-    }
+        document.getElementById("perfLinkType").addEventListener("change", onLinkTypeChange);
+        document.getElementById("btnImport").addEventListener("click", onImportClick);
+        document.getElementById("perfForm").addEventListener("submit", onFormSubmit);
+        document.getElementById("btnReset").addEventListener("click", resetForm);
+        document.getElementById("btnCopy").addEventListener("click", copyHtml);
+        document.getElementById("jsonFile").addEventListener("change", onImportJson);
+        document.getElementById("btnExportJson").addEventListener("click", onExportJson);
 
-    function editItem(id) {
-      const p = performances.find(x => x.id === id);
-      if (!p) return;
-      document.getElementById('perfId').value = String(p.id);
-      document.getElementById('perfDate').value = p.dateISO;
-      document.getElementById('perfTime').value = p.timeText || '';
-      document.getElementById('perfShow').value = p.titleKey;
-      document.getElementById('perfVenue').value = p.venue;
-      document.getElementById('perfLinkType').value = p.linkType;
-      document.getElementById('perfLinkUrl').value = p.linkUrl || '';
-      document.getElementById('btnSave').textContent = 'Uložit změny';
-      onLinkTypeChange();
-      document.getElementById('perfForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function deleteItem(id) {
-      if (!confirm('Odebrat položku?')) return;
-      performances = performances.filter(p => p.id !== id);
-      renderList();
-      renderHtml();
-      saveLocal();
-    }
-
-    function moveItem(id, dir) {
-      const idx = performances.findIndex(p => p.id === id);
-      if (idx < 0) return;
-      const j = idx + dir;
-      if (j < 0 || j >= performances.length) return;
-      const tmp = performances[idx];
-      performances[idx] = performances[j];
-      performances[j] = tmp;
-      renderList();
-      renderHtml();
-      saveLocal();
-    }
-
-    // List render
-    function renderList() {
-      const tbody = document.getElementById('perfTbody');
-      if (!performances.length) {
-        tbody.innerHTML = '<tr><td colspan="5" class="muted">Zatím žádné položky.</td></tr>';
-        return;
+        onLinkTypeChange();
+        renderList();
+        renderHtml();
       }
 
-      const rows = performances.map(p => {
-        const show = SHOW_BY_KEY[p.titleKey];
-        const linkBadge = p.linkType === 'program' ? '<span class="badge program">Program</span>'
-                        : p.linkType === 'direct' ? '<span class="badge direct">Přímý nákup</span>'
-                        : '<span class="badge none">Není</span>';
-        return `<tr>
-          <td>${escapeHtml(formatDateCZ(p.dateISO))}${p.timeText ? '<br><span class="muted small">' + escapeHtml(p.timeText) + '</span>' : ''}</td>
+      function onLinkTypeChange() {
+        const type = /** @type {HTMLSelectElement} */ (document.getElementById("perfLinkType"))
+          .value;
+        const url = document.getElementById("perfLinkUrl");
+        const required = type === "program" || type === "direct";
+        url.disabled = !required;
+        url.placeholder = required ? "https://…" : "—";
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      // Formulář – přidání/uložení
+      function onFormSubmit(e) {
+        e.preventDefault();
+        const id = Number(document.getElementById("perfId").value || 0);
+        const dateISO = document.getElementById("perfDate").value.trim();
+        const timeText = document.getElementById("perfTime").value.trim();
+        const titleKey = document.getElementById("perfShow").value;
+        const venue = document.getElementById("perfVenue").value.trim();
+        const linkType = document.getElementById("perfLinkType").value || "none";
+        const linkUrl = document.getElementById("perfLinkUrl").value.trim();
+
+        const msg = document.getElementById("formMsg");
+
+        if (!dateISO || !titleKey || !venue) {
+          msg.textContent = "Vyplňte prosím datum, představení a místo.";
+          return;
+        }
+        if ((linkType === "program" || linkType === "direct") && !/^https?:\/\//i.test(linkUrl)) {
+          msg.textContent =
+            "Zadejte platnou URL (musí začínat http:// nebo https://), nebo zvolte „Není“.\u00A0";
+          return;
+        }
+        msg.textContent = "";
+
+        if (id) {
+          const i = performances.findIndex((p) => p.id === id);
+          if (i >= 0)
+            performances[i] = { id, dateISO, timeText, titleKey, venue, linkType, linkUrl };
+        } else {
+          performances.push({
+            id: nextId++,
+            dateISO,
+            timeText,
+            titleKey,
+            venue,
+            linkType,
+            linkUrl,
+          });
+        }
+
+        resetForm();
+        renderList();
+        renderHtml();
+        saveLocal();
+      }
+
+      function resetForm() {
+        document.getElementById("perfForm").reset();
+        document.getElementById("perfId").value = "";
+        document.getElementById("btnSave").textContent = "Přidat do seznamu";
+        onLinkTypeChange();
+        document.getElementById("formMsg").textContent = "";
+      }
+
+      function editItem(id) {
+        const p = performances.find((x) => x.id === id);
+        if (!p) return;
+        document.getElementById("perfId").value = String(p.id);
+        document.getElementById("perfDate").value = p.dateISO;
+        document.getElementById("perfTime").value = p.timeText || "";
+        document.getElementById("perfShow").value = p.titleKey;
+        document.getElementById("perfVenue").value = p.venue;
+        document.getElementById("perfLinkType").value = p.linkType;
+        document.getElementById("perfLinkUrl").value = p.linkUrl || "";
+        document.getElementById("btnSave").textContent = "Uložit změny";
+        onLinkTypeChange();
+        document.getElementById("perfForm").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function deleteItem(id) {
+        if (!confirm("Odebrat položku?")) return;
+        performances = performances.filter((p) => p.id !== id);
+        renderList();
+        renderHtml();
+        saveLocal();
+      }
+
+      function moveItem(id, dir) {
+        const idx = performances.findIndex((p) => p.id === id);
+        if (idx < 0) return;
+        const j = idx + dir;
+        if (j < 0 || j >= performances.length) return;
+        const tmp = performances[idx];
+        performances[idx] = performances[j];
+        performances[j] = tmp;
+        renderList();
+        renderHtml();
+        saveLocal();
+      }
+
+      // List render
+      function renderList() {
+        const tbody = document.getElementById("perfTbody");
+        if (!performances.length) {
+          tbody.innerHTML = '<tr><td colspan="5" class="muted">Zatím žádné položky.</td></tr>';
+          return;
+        }
+
+        const rows = performances
+          .map((p) => {
+            const show = SHOW_BY_KEY[p.titleKey];
+            const linkBadge =
+              p.linkType === "program"
+                ? '<span class="badge program">Program</span>'
+                : p.linkType === "direct"
+                ? '<span class="badge direct">Přímý nákup</span>'
+                : '<span class="badge none">Není</span>';
+            return `<tr>
+          <td>${escapeHtml(formatDateCZ(p.dateISO))}${
+              p.timeText
+                ? '<br><span class="muted small">' + escapeHtml(p.timeText) + "</span>"
+                : ""
+            }</td>
           <td>${escapeHtml(show?.label || p.titleKey)}</td>
           <td>${escapeHtml(p.venue)}</td>
           <td>${linkBadge}</td>
           <td>
             <div class="row">
-              <button class="btn secondary" type="button" onclick="editItem(${p.id})">Upravit</button>
-              <button class="btn secondary" type="button" onclick="moveItem(${p.id}, -1)">Nahoru</button>
-              <button class="btn secondary" type="button" onclick="moveItem(${p.id}, 1)">Dolů</button>
+              <button class="btn secondary" type="button" onclick="editItem(${
+                p.id
+              })">Upravit</button>
+              <button class="btn secondary" type="button" onclick="moveItem(${
+                p.id
+              }, -1)">Nahoru</button>
+              <button class="btn secondary" type="button" onclick="moveItem(${
+                p.id
+              }, 1)">Dolů</button>
               <button class="btn" type="button" onclick="deleteItem(${p.id})">Smazat</button>
             </div>
           </td>
         </tr>`;
-      }).join('');
+          })
+          .join("");
 
-      tbody.innerHTML = rows;
-    }
-
-    // HTML generator – zatím prázdná kostra; naplníme v dalších krocích
-    function renderHtml() {
-      const pre = document.getElementById('htmlOut');
-      const btnCopy = document.getElementById('btnCopy');
-      const html = generateHtmlSnippet(performances);
-      pre.textContent = html;
-      btnCopy.disabled = !performances.length;
-    }
-
-    function generateHtmlSnippet(list) {
-      // Pozn.: finální podoba s měsíčním seskupením bude doplněna v dalších krocích.
-      // Zatím pouze obal bez položek, aby bylo jasné kde vkládat.
-      return '<div class="program-schedule content-gutter">\n  <!-- Sem budou generovány položky po doplnění logiky -->\n</div>';
-    }
-
-    async function copyHtml() {
-      const text = document.getElementById('htmlOut').textContent || '';
-      await navigator.clipboard.writeText(text);
-      alert('HTML zkopírováno do schránky.');
-    }
-
-    // Import existujícího HTML (vložením nebo souborem) – logiku doplníme později
-    function onImportClick() {
-      const ta = document.getElementById('htmlPaste');
-      const html = ta.value.trim();
-      if (!html) {
-        const file = document.getElementById('htmlFile').files?.[0];
-        if (!file) { alert('Vložte HTML nebo vyberte soubor.'); return; }
-        const reader = new FileReader();
-        reader.onload = () => importHtml(String(reader.result || ''));
-        reader.readAsText(file, 'utf-8');
-      } else {
-        importHtml(html);
+        tbody.innerHTML = rows;
       }
-    }
 
-    function importHtml(html) {
-      // Placeholder – detailní parser doplníme ve vyhrazeném kroku
-      alert('Import HTML: Parser bude doplněn v dalších krocích.');
-    }
+      // HTML generator – zatím prázdná kostra; naplníme v dalších krocích
+      function renderHtml() {
+        const pre = document.getElementById("htmlOut");
+        const btnCopy = document.getElementById("btnCopy");
+        const html = generateHtmlSnippet(performances);
+        pre.textContent = html;
+        btnCopy.disabled = !performances.length;
+      }
 
-    // JSON export/import pro zálohu (implementace přibude v příslušném kroku)
-    function onExportJson() {
-      const data = { version: 1, nextId, performances };
-      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'program-admin-export.json';
-      a.click();
-      URL.revokeObjectURL(a.href);
-    }
+      function getYMD(iso) {
+        const [y,m,d] = iso.split('-').map(Number);
+        return { y, m, d };
+      }
 
-    function onImportJson(ev) {
-      const file = ev.target.files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
+      function compareByDate(a, b) {
+        const A = getYMD(a.dateISO);
+        const B = getYMD(b.dateISO);
+        return A.y - B.y || A.m - B.m || A.d - B.d;
+      }
+
+      function generateHtmlSnippet(list) {
+        // Seřadit podle data
+        const items = [...list].sort(compareByDate);
+
+        // Sestavit HTML s měsíčním seskupením (pouze názvy měsíců v češtině)
+        let out = [];
+        out.push('<div class="program-schedule content-gutter">');
+
+        let currentMonth = -1;
+        for (const p of items) {
+          const { m } = getYMD(p.dateISO);
+          if (m !== currentMonth) {
+            // uzavření předchozí sekce (pokud nějaká byla)
+            if (currentMonth !== -1) {
+              out.push('          '); // oddělující prázdný řádek pro čitelnost
+              out.push('          '); // dvojité odsazení pro konzistenci s ukázkou
+            }
+            currentMonth = m;
+            const monthName = MONTHS_CZ[m - 1];
+            out.push(`          <!-- ${monthName} -->`);
+            out.push('          <div class="month-section">');
+            out.push(`            <h3 class="month-title">${monthName}</h3>`);
+          }
+
+          const show = SHOW_BY_KEY[p.titleKey] || { href: '#', label: p.titleKey };
+          const datePart = formatDateCZ(p.dateISO);
+          const timePart = p.timeText ? `<br />${escapeHtml(p.timeText)}` : '';
+
+          out.push('            <div class="performance-strip p-3">');
+          out.push('              <div class="row align-items-center">');
+          out.push('                <div class="col-md-2">');
+          out.push(`                  <div class="performance-date">${escapeHtml(datePart)}${timePart}</div>`);
+          out.push('                </div>');
+          out.push('                <div class="col-md-6">');
+          out.push('                  <h5 class="performance-title">');
+          out.push(`                    <a href="${escapeHtml(show.href)}">${escapeHtml(show.label)}</a>`);
+          out.push('                  </h5>');
+          out.push(`                  <p class="performance-venue">${escapeHtml(p.venue)}</p>`);
+          out.push('                </div>');
+
+          // Pravý sloupec s tlačítkem (nebo prázdný)
+          if (p.linkType === 'program' || p.linkType === 'direct') {
+            const meta = LINK_META[p.linkType];
+            const url = escapeHtml(p.linkUrl);
+            out.push('                <div class="col-md-4 text-md-end">');
+            out.push('                  <a');
+            out.push(`                    href="${url}"`);
+            out.push('                    target="_blank"');
+            out.push('                    rel="noopener"');
+            out.push(`                    class="${meta.class}"`);
+            out.push(`                    title="${escapeHtml(meta.title)}"`);
+            out.push(`                    >${escapeHtml(meta.text)}</a`);
+            out.push('                  >');
+            out.push('                </div>');
+          } else {
+            out.push('                <div class="col-md-4 text-md-end"></div>');
+          }
+
+          out.push('              </div>');
+          out.push('            </div>');
+
+          // Pokud je příští položka jiného měsíce, uzavře se sekce při začátku dalšího měsíce
+          // Na konci cyklu uzavřeme poslední sekci níže
+          const i = items.indexOf(p);
+          const next = items[i + 1];
+          if (!next || getYMD(next.dateISO).m !== currentMonth) {
+            out.push('          </div>'); // ukončení .month-section
+          }
+        }
+
+        out.push('        </div>'); // ukončení .program-schedule content-gutter
+        // Pozn.: zachováváme pouze obal program-schedule; vkládá se do existující struktury stránky
+        return out.join('\n');
+      }
+
+      async function copyHtml() {
+        const text = document.getElementById("htmlOut").textContent || "";
+        await navigator.clipboard.writeText(text);
+        alert("HTML zkopírováno do schránky.");
+      }
+
+      // Import existujícího HTML (vložením nebo souborem) – logiku doplníme později
+      function onImportClick() {
+        const ta = document.getElementById("htmlPaste");
+        const html = ta.value.trim();
+        if (!html) {
+          const file = document.getElementById("htmlFile").files?.[0];
+          if (!file) {
+            alert("Vložte HTML nebo vyberte soubor.");
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = () => importHtml(String(reader.result || ""));
+          reader.readAsText(file, "utf-8");
+        } else {
+          importHtml(html);
+        }
+      }
+
+      function importHtml(html) {
+        // Placeholder – detailní parser doplníme ve vyhrazeném kroku
+        alert("Import HTML: Parser bude doplněn v dalších krocích.");
+      }
+
+      // JSON export/import pro zálohu (implementace přibude v příslušném kroku)
+      function onExportJson() {
+        const data = { version: 1, nextId, performances };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "program-admin-export.json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+
+      function onImportJson(ev) {
+        const file = ev.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const data = JSON.parse(String(reader.result || "{}"));
+            if (data && Array.isArray(data.performances)) {
+              performances = data.performances;
+              nextId = Number(data.nextId) || Math.max(0, ...performances.map((p) => p.id)) + 1;
+              renderList();
+              renderHtml();
+              saveLocal();
+            } else {
+              alert("Soubor neobsahuje platná data.");
+            }
+          } catch (e) {
+            alert("Chyba při načítání JSON: " + e);
+          }
+        };
+        reader.readAsText(file, "utf-8");
+      }
+
+      // Local storage – zapneme v dalším kroku; teď jen obal
+      function saveLocal() {
         try {
-          const data = JSON.parse(String(reader.result || '{}'));
+          const data = { version: 1, nextId, performances };
+          localStorage.setItem("program-admin-state", JSON.stringify(data));
+        } catch {}
+      }
+      function loadLocal() {
+        try {
+          const raw = localStorage.getItem("program-admin-state");
+          if (!raw) return;
+          const data = JSON.parse(raw);
           if (data && Array.isArray(data.performances)) {
             performances = data.performances;
-            nextId = Number(data.nextId) || (Math.max(0, ...performances.map(p => p.id)) + 1);
-            renderList();
-            renderHtml();
-            saveLocal();
-          } else {
-            alert('Soubor neobsahuje platná data.');
+            nextId = Number(data.nextId) || Math.max(0, ...performances.map((p) => p.id)) + 1;
           }
-        } catch (e) {
-          alert('Chyba při načítání JSON: ' + e);
-        }
-      };
-      reader.readAsText(file, 'utf-8');
-    }
+        } catch {}
+      }
 
-    // Local storage – zapneme v dalším kroku; teď jen obal
-    function saveLocal() {
-      try {
-        const data = { version: 1, nextId, performances };
-        localStorage.setItem('program-admin-state', JSON.stringify(data));
-      } catch {}
-    }
-    function loadLocal() {
-      try {
-        const raw = localStorage.getItem('program-admin-state');
-        if (!raw) return;
-        const data = JSON.parse(raw);
-        if (data && Array.isArray(data.performances)) {
-          performances = data.performances;
-          nextId = Number(data.nextId) || (Math.max(0, ...performances.map(p => p.id)) + 1);
-        }
-      } catch {}
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      loadLocal();
-      init();
-    });
-  </script>
-</body>
+      document.addEventListener("DOMContentLoaded", () => {
+        loadLocal();
+        init();
+      });
+    </script>
+  </body>
 </html>
