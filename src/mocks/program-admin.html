@@ -278,8 +278,8 @@
         <ul class="small">
           <li>
             Kopírujte pouze uzel
-            <code>&lt;div class="program-schedule content-gutter"&gt;…&lt;/div&gt;</code> a vložte ho do
-            <code>program.html</code> na místo stávající sekce s programem.
+            <code>&lt;div class="program-schedule content-gutter"&gt;…&lt;/div&gt;</code> a vložte
+            ho do <code>program.html</code> na místo stávající sekce s programem.
           </li>
           <li>
             Tlačítko „Program“ má třídu <code>btn-ticket-program</code>, „Přímý nákup“
@@ -703,10 +703,10 @@
         try {
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, "text/html");
-          const root = doc.querySelector('.program-schedule') || doc.body;
-          const strips = root.querySelectorAll('.performance-strip');
+          const root = doc.querySelector(".program-schedule") || doc.body;
+          const strips = root.querySelectorAll(".performance-strip");
           if (!strips.length) {
-            alert('V zadaném HTML nebyly nalezeny žádné položky (.performance-strip).');
+            alert("V zadaném HTML nebyly nalezeny žádné položky (.performance-strip).");
             return;
           }
 
@@ -714,65 +714,82 @@
           const imported = [];
           let unknownMapCount = 0;
 
-          strips.forEach(strip => {
+          strips.forEach((strip) => {
             try {
-              const dateEl = strip.querySelector('.performance-date');
-              const titleA = strip.querySelector('.performance-title a');
-              const venueEl = strip.querySelector('.performance-venue');
-              const buttonA = strip.querySelector('.btn-tickets');
+              const dateEl = strip.querySelector(".performance-date");
+              const titleA = strip.querySelector(".performance-title a");
+              const venueEl = strip.querySelector(".performance-venue");
+              const buttonA = strip.querySelector(".btn-tickets");
               if (!dateEl || !titleA || !venueEl) return;
 
               // Datum a čas
-              const htmlDate = dateEl.innerHTML || '';
-              const brSplit = htmlDate.replace(/<br\s*\/?\s*>/gi, '|');
-              const parts = brSplit.split('|');
-              const dateText = (parts[0] || '').trim();
-              const timeText = (parts[1] || '').trim();
+              const htmlDate = dateEl.innerHTML || "";
+              const brSplit = htmlDate.replace(/<br\s*\/?\s*>/gi, "|");
+              const parts = brSplit.split("|");
+              const dateText = (parts[0] || "").trim();
+              const timeText = (parts[1] || "").trim();
               const dateISO = parseDateCZ(dateText);
               if (!dateISO) return;
 
               // Show mapování
-              const href = (titleA.getAttribute('href') || '').trim();
-              const label = (titleA.textContent || '').trim();
+              const href = (titleA.getAttribute("href") || "").trim();
+              const label = (titleA.textContent || "").trim();
               let show = SHOW_BY_HREF[href] || SHOW_BY_LABEL[label] || null;
               if (!show) {
-                const file = href.split('/').pop() || href;
+                const file = href.split("/").pop() || href;
                 show = SHOW_BY_HREF[file] || null;
                 if (!show) unknownMapCount++;
               }
               if (!show) return; // nelze jednoznačně mapovat – přeskočíme
 
               // Venue
-              const venue = (venueEl.textContent || '').trim();
+              const venue = (venueEl.textContent || "").trim();
 
               // Tlačítko
-              let linkType = 'none';
-              let linkUrl = '';
+              let linkType = "none";
+              let linkUrl = "";
               if (buttonA) {
                 const cls = buttonA.classList;
-                const hrefBtn = (buttonA.getAttribute('href') || '').trim();
-                if (cls.contains('btn-ticket-program')) { linkType = 'program'; linkUrl = hrefBtn; }
-                else if (cls.contains('btn-ticket-direct')) { linkType = 'direct'; linkUrl = hrefBtn; }
+                const hrefBtn = (buttonA.getAttribute("href") || "").trim();
+                if (cls.contains("btn-ticket-program")) {
+                  linkType = "program";
+                  linkUrl = hrefBtn;
+                } else if (cls.contains("btn-ticket-direct")) {
+                  linkType = "direct";
+                  linkUrl = hrefBtn;
+                }
               }
 
-              imported.push({ id: 0, dateISO, timeText, titleKey: show.key, venue, linkType, linkUrl });
-            } catch { /* skip bad strip */ }
+              imported.push({
+                id: 0,
+                dateISO,
+                timeText,
+                titleKey: show.key,
+                venue,
+                linkType,
+                linkUrl,
+              });
+            } catch {
+              /* skip bad strip */
+            }
           });
 
           if (!imported.length) {
-            alert('Nebyly úspěšně naimportovány žádné položky.');
+            alert("Nebyly úspěšně naimportovány žádné položky.");
             return;
           }
 
-          performances = imported.map(p => ({ ...p, id: nextId++ }));
+          performances = imported.map((p) => ({ ...p, id: nextId++ }));
           renderList();
           renderHtml();
           saveLocal();
 
-          const note = unknownMapCount ? `\nPozn.: ${unknownMapCount} položek mělo neznámý odkaz titulu – zkontrolujte prosím jejich mapování.` : '';
+          const note = unknownMapCount
+            ? `\nPozn.: ${unknownMapCount} položek mělo neznámý odkaz titulu – zkontrolujte prosím jejich mapování.`
+            : "";
           alert(`Načteno položek: ${performances.length}.${note}`);
         } catch (e) {
-          alert('Chyba při importu HTML: ' + e);
+          alert("Chyba při importu HTML: " + e);
         }
       }
 
