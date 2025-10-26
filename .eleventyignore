@@ -1,0 +1,2 @@
+# Ignore the admin page from being processed by Eleventy
+src/admin/program-admin.html
