@@ -171,8 +171,9 @@
           </li>
           <li>Přidejte nebo upravte představení, případně je seřaďte.</li>
           <li>
-            Vpravo dole zkopírujte vygenerované HTML a vložte do části
-            <code>&lt;div class="program-schedule content-gutter"&gt;…</code> v souboru
+            Vpravo dole zkopírujte vygenerované HTML a vložte pouze mezi komentáře
+            <code>&lt;!-- AKTUALIZOVANY PROGRAM - ZACATEK --&gt;</code> a
+            <code>&lt;!-- AKTUALIZOVANY PROGRAM - KONEC --&gt;</code> v souboru
             <code>program.html</code>.
           </li>
         </ol>
@@ -264,7 +265,7 @@
           <pre id="htmlOut"><!-- HTML ukázka bude vygenerována po přidání položek --></pre>
         </div>
         <div class="row" style="margin-top: 8px">
-          <button class="btn" id="btnCopy" disabled>Zkopírovat HTML</button>
+          <button class="btn" id="btnCopy" disabled>Zkopírovat vnitřní HTML</button>
           <button class="btn secondary" id="btnExportJson">Export JSON</button>
           <label class="btn secondary" style="margin: 0">
             Import JSON
@@ -277,9 +278,11 @@
         <h2 id="s-notes">Poznámka k použití</h2>
         <ul class="small">
           <li>
-            Kopírujte pouze uzel
-            <code>&lt;div class="program-schedule content-gutter"&gt;…&lt;/div&gt;</code> a vložte
-            ho do <code>program.html</code> na místo stávající sekce s programem.
+            Kopírujte pouze obsah mezi komentáři
+            <code>&lt;!-- AKTUALIZOVANY PROGRAM - ZACATEK --&gt;</code> a
+            <code>&lt;!-- AKTUALIZOVANY PROGRAM - KONEC --&gt;</code> –
+            bez obalového
+            <code>&lt;div class="program-schedule content-gutter"&gt;</code>.
           </li>
           <li>
             Tlačítko „Program“ má třídu <code>btn-ticket-program</code>, „Přímý nákup“
@@ -599,8 +602,9 @@
         const items = [...list].sort(compareByDate);
 
         // Sestavit HTML s měsíčním seskupením (pouze názvy měsíců v češtině)
+        // POZOR: generujeme pouze VNITŘEK mezi značkami
+        // <!-- AKTUALIZOVANY PROGRAM - ZACATEK --> a <!-- AKTUALIZOVANY PROGRAM - KONEC -->
         let out = [];
-        out.push('<div class="program-schedule content-gutter">');
 
         let currentMonth = -1;
         for (const p of items) {
@@ -670,15 +674,14 @@
           }
         }
 
-        out.push("        </div>"); // ukončení .program-schedule content-gutter
-        // Pozn.: zachováváme pouze obal program-schedule; vkládá se do existující struktury stránky
+        // Pozn.: nevracíme obal program-schedule; vkládá se do existující struktury stránky mezi značky
         return out.join("\n");
       }
 
       async function copyHtml() {
         const text = document.getElementById("htmlOut").textContent || "";
         await navigator.clipboard.writeText(text);
-        alert("HTML zkopírováno do schránky.");
+        alert("Vnitřní HTML zkopírováno do schránky.");
       }
 
       // Import existujícího HTML (vložením nebo souborem) – logiku doplníme později
