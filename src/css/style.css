@@ -2874,3 +2874,23 @@ details[open] .when-closed {
     bottom: 0.85rem;
   }
 }
+
+/* ==========================================
+   RELATED SHOWS COMPONENT
+   ========================================== */
+
+.related-show-card {
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.related-show-card:hover {
+  transform: translateY(-4px);
+}
+
+.related-show-title {
+  color: var(--page-headline-color);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}

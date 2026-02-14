@@ -1,0 +1,27 @@
+{# Related Shows Component — renders cards for all shows except the current page #}
+<section class="py-5">
+  <div class="container content-gutter">
+    <h2 class="section-title mb-4">Další naše pohádky</h2>
+    <div class="row g-4">
+      {% for show in shows %}
+        {% if page.url !== '/' + show.url %}
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="{{ show.url }}" class="text-decoration-none">
+            <div class="related-show-card h-100">
+              <img
+                src="{{ show.image }}"
+                alt="{{ show.title }}"
+                class="img-fluid rounded shadow-sm mb-2"
+              />
+              <p class="related-show-title fw-semibold mb-0">{{ show.title }}</p>
+            </div>
+          </a>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="repertoar.html" class="btn btn-outline-primary">Celý repertoár</a>
+    </div>
+  </div>
+</section>
