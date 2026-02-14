@@ -73,6 +73,27 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // Transform: add loading="lazy" and decoding="async" to <img> and <iframe>
+  // tags that don't already have a loading attribute.
+  // Mark LCP / hero images with loading="eager" in source to opt out.
+  eleventyConfig.addTransform("lazy-load", function (content, outputPath) {
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
+
+    // Add loading="lazy" + decoding="async" to <img> without a loading attribute
+    content = content.replace(/<img\b(?![^>]*\bloading\b)([^>]*?)\/?>/gi, (match, attrs) => {
+      const hasDecoding = /\bdecoding\b/i.test(attrs);
+      const extra = hasDecoding ? ' loading="lazy"' : ' loading="lazy" decoding="async"';
+      return `<img${extra}${attrs} />`;
+    });
+
+    // Add loading="lazy" to <iframe> without a loading attribute
+    content = content.replace(/<iframe\b(?![^>]*\bloading\b)([^>]*?)>/gi, (match, attrs) => {
+      return `<iframe loading="lazy"${attrs}>`;
+    });
+
+    return content;
+  });
+
   return {
     pathPrefix: "",
     dir: {
