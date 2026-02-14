@@ -43,6 +43,11 @@ module.exports = function (eleventyConfig) {
     return new Date(date).toISOString();
   });
 
+  // Check if permalink is a show (pohádka) page
+  eleventyConfig.addFilter("isShowPage", function (permalink) {
+    return typeof permalink === "string" && permalink.includes("pohadka");
+  });
+
   // Helper to read a file's contents (used to feed CSS into the bundle)
   eleventyConfig.addFilter("readFile", function (filePath) {
     const full = path.resolve(__dirname, filePath);

@@ -57,6 +57,81 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    {# ── Structured Data (JSON-LD) ── #}
+
+    {# Site-wide Organization / TheaterGroup #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TheaterGroup",
+      "name": "Divadlo Láryfáry",
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}/images/og-default.jpg",
+      "description": "{{ site.description }}",
+      "foundingDate": "2008",
+      "email": "info@divadlolaryfary.cz",
+      "telephone": "+420608823463",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Praha",
+        "addressCountry": "CZ"
+      },
+      "sameAs": [
+        "https://www.instagram.com/divadlolaryfary/",
+        "https://www.facebook.com/divadlolaryfary"
+      ]
+    }
+    </script>
+
+    {# BreadcrumbList JSON-LD for pages with breadcrumbs #}
+    {% if breadcrumbs %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {% for crumb in breadcrumbs %}
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index }},
+          {% if crumb.url %}
+          "name": "{{ crumb.title }}",
+          "item": "{{ site.url }}/{{ crumb.url }}"
+          {% else %}
+          "name": "{{ crumb.title }}"
+          {% endif %}
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+    </script>
+    {% endif %}
+
+    {# CreativeWork JSON-LD for show (pohádka) pages #}
+    {% if breadcrumbs and permalink and permalink | isShowPage %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "url": "{{ site.url }}{{ page.url }}",
+      "genre": "Dětské divadlo",
+      "inLanguage": "cs",
+      "creator": {
+        "@type": "TheaterGroup",
+        "name": "Divadlo Láryfáry",
+        "url": "{{ site.url }}"
+      },
+      "audience": {
+        "@type": "PeopleAudience",
+        "audienceType": "Děti",
+        "suggestedMinAge": 4
+      }
+    }
+    </script>
+    {% endif %}
   </head>
   <body id="top">
     <div class="site-wrapper">
