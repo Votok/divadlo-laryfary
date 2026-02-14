@@ -26,6 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/css/"); // Watch CSS for changes
   eleventyConfig.addPassthroughCopy("./src/css"); // Copy CSS directly
   eleventyConfig.addPassthroughCopy("./src/images"); // Copy images directly
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" }); // SEO: robots.txt
   // Root static assets (favicons, etc.)
   eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
   // If other favicon files (png, ico) exist in src root, copy them
@@ -34,6 +35,12 @@ module.exports = function (eleventyConfig) {
     if (fs.existsSync(full)) {
       eleventyConfig.addPassthroughCopy({ ["src/" + f]: f });
     }
+  });
+
+  // ISO date filter for sitemap
+  eleventyConfig.addFilter("isoDate", function (date) {
+    if (!date) return new Date().toISOString();
+    return new Date(date).toISOString();
   });
 
   // Helper to read a file's contents (used to feed CSS into the bundle)
