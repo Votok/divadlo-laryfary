@@ -2,6 +2,59 @@
 
 Website for Divadlo Láryfáry using Eleventy (11ty) static site generator.
 
+## Project Overview (for AI tools)
+
+### Stack / Generator
+
+- Static site built with **Eleventy (11ty)**.
+- Templates in **Nunjucks** (`.njk`).
+- Source content in `src/`, output site generated into `_site/`.
+
+### Key Settings & Config
+
+- Eleventy is invoked via `npm` scripts in `package.json`:
+  - `npm run dev` → `eleventy --serve --watch`
+  - `npm run build` → `eleventy`
+  - `npm start` → `eleventy --serve`
+- Global site data lives in `src/_data/site.json`.
+- Shared layouts and components are under `src/_includes/`.
+
+### Folder Map
+
+Top level:
+
+- `src/` – **source of truth** for the new site (pages, layouts, assets).
+- `_site/` – **generated output** from Eleventy (do not edit by hand).
+- `archive/` – old / legacy static files for reference only.
+- `package.json` – Eleventy + build scripts and dependencies.
+
+Inside `src/`:
+
+- `src/index.html`, `src/*.html` – individual pages using Eleventy front matter.
+- Most content pages are **plain HTML files** (`.html`) with YAML front matter at the top.
+- `src/_data/site.json` – global config (site-wide metadata, navigation helpers, etc.).
+- `src/_includes/layouts/` – base page layouts (e.g. `base.njk`, `subpage-clean.njk`).
+- `src/_includes/components/` – reusable components (e.g. `header.njk`, `footer.njk`, `subpage-header.njk`, `bottom-nav.njk`).
+- `src/css/style.css` – main styles for the new site.
+- `src/images/` – images used by the new site.
+- `src/admin/program-admin.html` – simple admin helper page for program data.
+
+Inside `_site/`:
+
+- Mirrors `src/` pages as final static HTML + processed assets.
+- Used by the deployed site; safe to delete and re‑generate via `npm run build`.
+
+Inside `archive/`:
+
+- Legacy HTML (`*.html`), CSS and JS from the previous version of the site.
+- Subfolders like `archive/Design/Images`, `archive/Design/Styles` etc. are **reference only**.
+
+### Mental Model
+
+- Edit **only** files under `src/` (content, layouts, components, styles).
+- Eleventy reads `src/`, `src/_data`, `src/_includes` and writes the compiled site to `_site/`.
+- `archive/` exists for historical content and design inspiration; do not wire new features into it.
+
 ## Subpage Structure
 
 ### Creating New Subpages
