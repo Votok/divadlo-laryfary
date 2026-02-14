@@ -1,6 +1,13 @@
-# Divadlo Láryfáry Website
+# Divadlo Láryfáry – Dětské divadlo Praha
 
-Website for Divadlo Láryfáry using Eleventy (11ty) static site generator.
+Oficiální web **[Divadla Láryfáry](https://www.divadlolaryfary.cz)** – pražského profesionálního autorského divadla pro děti. Od roku 2008 hrajeme originální pohádky a představení pro děti v pražských divadlech (Kalich, Viola a další).
+
+- 🎭 **Autorské pohádky pro děti** – unikátní repertoár vlastních her
+- 📅 **Aktuální program** – představení s online prodejem vstupenek
+- 📖 **Besedy a workshopy** – interaktivní programy pro školy a školky
+- 📚 **Naše knihy** – knižní adaptace oblíbených pohádek
+
+Web: [www.divadlolaryfary.cz](https://www.divadlolaryfary.cz)
 
 ## Project Overview (for AI tools)
 
@@ -23,9 +30,8 @@ Website for Divadlo Láryfáry using Eleventy (11ty) static site generator.
 
 Top level:
 
-- `src/` – **source of truth** for the new site (pages, layouts, assets).
+- `src/` – **source of truth** for the site (pages, layouts, assets).
 - `_site/` – **generated output** from Eleventy (do not edit by hand).
-- `archive/` – old / legacy static files for reference only.
 - `package.json` – Eleventy + build scripts and dependencies.
 
 Inside `src/`:
@@ -44,16 +50,10 @@ Inside `_site/`:
 - Mirrors `src/` pages as final static HTML + processed assets.
 - Used by the deployed site; safe to delete and re‑generate via `npm run build`.
 
-Inside `archive/`:
-
-- Legacy HTML (`*.html`), CSS and JS from the previous version of the site.
-- Subfolders like `archive/Design/Images`, `archive/Design/Styles` etc. are **reference only**.
-
 ### Mental Model
 
 - Edit **only** files under `src/` (content, layouts, components, styles).
 - Eleventy reads `src/`, `src/_data`, `src/_includes` and writes the compiled site to `_site/`.
-- `archive/` exists for historical content and design inspiration; do not wire new features into it.
 
 ## Subpage Structure
 
@@ -166,3 +166,15 @@ Build for production:
 ```bash
 npx @11ty/eleventy
 ```
+
+## SEO
+
+Web je optimalizován pro vyhledávače:
+
+- **Structured Data (JSON-LD)** – `TheaterGroup`, `BreadcrumbList` a `CreativeWork` schema na stránkách pohádek.
+- **Open Graph & Twitter Cards** – každá stránka má vlastní `og:title`, `og:description`, `og:image`.
+- **Canonical URLs** – automaticky generované `<link rel="canonical">`.
+- **Sitemap & robots.txt** – `src/sitemap.njk` generuje XML sitemap, `src/robots.txt` povoluje crawling.
+- **Preload hero obrázků** – front matter `preloadImage` pro rychlejší LCP.
+- **Sémantické HTML** – správná hierarchie nadpisů, alt texty u obrázků.
+- **Klíčová slova** – každá stránka má vlastní `keywords` a `description` v front matter.
