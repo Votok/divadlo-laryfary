@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% if title %}{{ title }} - {% endif %}Divadlo Láryfáry</title>
+    <title>{% if fullTitle %}{{ fullTitle }}{% elif title %}{{ title }} - Divadlo Láryfáry{% else %}Divadlo Láryfáry{% endif %}</title>
     <meta name="description" content="{{ description or 'Divadlo Láryfáry - jsme pražské profesionální autorské divadlo, v současné době zaměřené především na dětského diváka.' }}" />
     <meta name="keywords" content="{{ keywords or 'dětské divadlo, divadlo pro děti, představení, dětské hry, divadlo Láryfáry, pohádka, pohádky, dětské představení' }}" />
     <meta name="author" content="Jan Votoček" />
@@ -12,7 +12,7 @@
     {% if page and page.url %}<link rel="canonical" href="{{ site.url }}{{ page.url }}" />{% endif %}
 
     {# Open Graph & Twitter #}
-    {% if title %}{% set ogTitle = title + ' - Divadlo Láryfáry' %}{% else %}{% set ogTitle = 'Divadlo Láryfáry' %}{% endif %}
+    {% if fullTitle %}{% set ogTitle = fullTitle %}{% elif title %}{% set ogTitle = title + ' - Divadlo Láryfáry' %}{% else %}{% set ogTitle = 'Divadlo Láryfáry' %}{% endif %}
     {% set ogDescription = description or 'Divadlo Láryfáry - pražské profesionální autorské divadlo zaměřené na dětského diváka.' %}
     {% if not ogImage %}{% set ogImage = site.ogImage %}{% endif %}
     {% if ogImage %}
@@ -127,7 +127,7 @@
       "audience": {
         "@type": "PeopleAudience",
         "audienceType": "Děti",
-        "suggestedMinAge": 4
+        "suggestedMinAge": {{ ageFrom or 4 }}
       }
     }
     </script>
