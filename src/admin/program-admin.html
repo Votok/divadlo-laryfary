@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,19 @@
       }
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue",
-          Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Ubuntu,
+          Cantarell,
+          "Helvetica Neue",
+          Arial,
+          "Noto Sans",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
           "Noto Color Emoji";
       }
       header {
@@ -68,8 +79,9 @@
       }
       textarea {
         min-height: 120px;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-          "Courier New", monospace;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
         font-size: 0.9rem;
       }
       .row {
@@ -299,7 +311,7 @@
     </main>
 
     <script>
-      // 8 představení – přesná URL dle webu
+      // 9 představení – přesná URL dle webu
       /** @type {{key:string,label:string,href:string}[]} */
       const SHOWS = [
         { key: "cirkusacka", label: "Cirkusácká pohádka", href: "pohadka-cirkusacka.html" },
@@ -330,6 +342,11 @@
           href: "pohadka-o-trech-namornicich.html",
         },
         { key: "strakate-bajky", label: "Strakaté bajky", href: "pohadka-strakate-bajky.html" },
+        {
+          key: "jak-andelicek-zachranil-vanoce",
+          label: "Jak andělíček zachránil Vánoce",
+          href: "pohadka-jak-andelicek-zachranil-vanoce.html",
+        },
       ];
 
       const SHOW_BY_KEY = Object.fromEntries(SHOWS.map((s) => [s.key, s]));
@@ -544,14 +561,12 @@
               p.linkType === "program"
                 ? '<span class="badge program">Program</span>'
                 : p.linkType === "direct"
-                ? '<span class="badge direct">Přímý nákup</span>'
-                : '<span class="badge none">Není</span>';
+                  ? '<span class="badge direct">Přímý nákup</span>'
+                  : '<span class="badge none">Není</span>';
             return `<tr>
           <td>${escapeHtml(formatDateCZ(p.dateISO))}${
-              p.timeText
-                ? '<br><span class="muted small">' + escapeHtml(p.timeText) + "</span>"
-                : ""
-            }</td>
+            p.timeText ? '<br><span class="muted small">' + escapeHtml(p.timeText) + "</span>" : ""
+          }</td>
           <td>${escapeHtml(show?.label || p.titleKey)}</td>
           <td>${escapeHtml(p.venue)}</td>
           <td>${linkBadge}</td>
@@ -630,14 +645,14 @@
           out.push('                <div class="col-md-2">');
           out.push(
             `                  <div class="performance-date">${escapeHtml(
-              datePart
-            )}${timePart}</div>`
+              datePart,
+            )}${timePart}</div>`,
           );
           out.push("                </div>");
           out.push('                <div class="col-md-6">');
           out.push('                  <h5 class="performance-title">');
           out.push(
-            `                    <a href="${escapeHtml(show.href)}">${escapeHtml(show.label)}</a>`
+            `                    <a href="${escapeHtml(show.href)}">${escapeHtml(show.label)}</a>`,
           );
           out.push("                  </h5>");
           out.push(`                  <p class="performance-venue">${escapeHtml(p.venue)}</p>`);
