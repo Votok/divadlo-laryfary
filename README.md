@@ -155,16 +155,24 @@ All badge classes inherit from `.performance-badge` base styles (280x76px dimens
 
 ### Development
 
-Run the development server:
+Install dependencies (only needed the first time):
 
 ```bash
-npx @11ty/eleventy --serve
+npm install
 ```
+
+Run the development server with automatic rebuilding:
+
+```bash
+npm run dev
+```
+
+Then open [http://localhost:8080](http://localhost:8080).
 
 Build for production:
 
 ```bash
-npx @11ty/eleventy
+npm run build
 ```
 
 ## SEO
