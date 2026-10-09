@@ -30,13 +30,15 @@ footerCharacterOrientation: right
     strašidelném nádraží' }, { slug: 'tri-namornici', title: 'Pohádka o třech námořnících' }, {
     slug: 'kacenka-a-rarasek', title: 'Pohádka o Kačence a Raráškovi' }, { slug:
     'indiani-ze-supliku', title: 'Indiáni ze šuplíku' }, { slug: 'kouzla-a-cary', title: 'Kouzla a
-    čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' } ] %} {% set
+    čáry tajemné Prahy' }, { slug: 'strakate-bajky', title: 'Strakaté bajky' }, { slug:
+    'jak-andelicek-zachranil-vanoce', title: 'Jak andělíček zachránil Vánoce' } ] %} {% set
     perfThumbs = { 'ene-bene-erbene': 'images/repertoar-ene-bene.jpg', 'cirkusacka':
     'images/repertoar-cirkusacka.jpg', 'strasidelnem-nadrazi':
     'images/repertoar-strasidelne-nadrazi.jpg', 'tri-namornici': 'images/repertoar-namornici.jpg',
     'kacenka-a-rarasek': 'images/repertoar-o-kacence.jpg', 'indiani-ze-supliku':
     'images/repertoar-indiani.jpg', 'kouzla-a-cary': 'images/repertoar-kouzla.jpg',
-    'strakate-bajky': 'images/repertoar-bajky.jpg' } %} {% for perf in performances %}
+    'strakate-bajky': 'images/repertoar-bajky.jpg', 'jak-andelicek-zachranil-vanoce':
+    'images/repertoar-jak-andelicek-zachranil-vanoce.jpg' } %} {% for perf in performances %}
     <div class="row mb-5" id="{{ perf.slug }}">
       <div
         class="col-12 {% if loop.index % 2 == 0 %}bg-light rounded-3 py-4 px-3 px-md-4{% endif %}"
@@ -77,6 +79,10 @@ footerCharacterOrientation: right
         }, 'strakate-bajky': { preview:
         ['pohadka-strakate-bajky-76.jpg','pohadka-strakate-bajky-71.jpg'], extra:
         ['pohadka-strakate-bajky-78.jpg','pohadka-strakate-bajky-72.jpg','pohadka-strakate-bajky-74.jpg','pohadka-strakate-bajky-80.jpg']
+        }, 'jak-andelicek-zachranil-vanoce': { preview:
+        ['pohadka-jak-andelicek-zachranil-vanoce-05.jpg','pohadka-jak-andelicek-zachranil-vanoce-06.jpg'],
+        extra:
+        ['pohadka-jak-andelicek-zachranil-vanoce-07.jpg','pohadka-jak-andelicek-zachranil-vanoce-08.jpg','pohadka-jak-andelicek-zachranil-vanoce-09.jpg','pohadka-jak-andelicek-zachranil-vanoce-10.jpg']
         } } %} {% set images = galleryImages[perf.slug] %}
 
         <!-- Always visible photos (2) from the galleryImages set -->

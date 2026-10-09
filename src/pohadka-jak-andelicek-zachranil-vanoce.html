@@ -8,6 +8,9 @@ ageFrom: 4
 permalink: "/pohadka-jak-andelicek-zachranil-vanoce.html"
 pageTitle: "Jak andělíček zachránil Vánoce"
 subtitle: "Ne všechny Vánoce jsou dokonalé."
+footerCharacterImage: images/jak-andelicek-zachranil-vanoce-footer-character.png
+footerHeightClass: footer-height-extra-tall
+footerCharacterOrientation: left
 breadcrumbs:
   - title: "Úvod"
     url: "./"
@@ -40,16 +43,20 @@ breadcrumbs:
           <!-- Main Performance Text -->
           <div class="performance-description">
             <p>
-              U Dvořáčků to letos rozhodně slibně nevypadá. Cukroví je spálené, Ježíšek z Betléma se
-              ztratil, doma vládne chaos a o zlatém prasátku si můžou nechat jen zdát. Naštěstí se v
-              tu pravou chvíli objeví Andělíček Zvoníček, který má jediný, ale nesmírně důležitý
-              úkol — zachraňovat Vánoce, když se něco pokazí. Sám to ale nezvládne. Bude potřebovat
-              pomoc dětí, vánoční písničky, zvonečky a trochu opravdového kouzla.
+              U Dvořáčků to letos rozhodně slibně nevypadá. Všude vládne chaos, cukroví je spálené
+              a o zlatém prasátku si můžou nechat jen zdát. A když se z rodinného betléma ztratí
+              malý Ježíšek, je o hádku postaráno.
             </p>
 
             <p>
-              Veselá a dojemná vánoční pohádka připomene malým i velkým, že ty pravé Vánoce nejsou o
-              dokonalosti, ale o radosti, sounáležitosti a společně stráveném čase.
+              Naštěstí se v tu pravou chvíli objeví andělíček, který má jediný, ale nesmírně
+              důležitý úkol — zachraňovat Vánoce všude tam, kde se něco pokazí. Sám to ale
+              nezvládne. Bude potřebovat pomoc dětí a trochu toho opravdového vánočního kouzla.
+            </p>
+
+            <p>
+              Vánoční pohádka, která vám připomene, že pravé Vánoce nejsou o dokonalosti, ale o
+              radosti, sounáležitosti a společně stráveném čase.
             </p>
           </div>
 
@@ -57,7 +64,7 @@ breadcrumbs:
           <div class="mt-5 d-flex">
             <div class="performance-badge badge-yellow p-3 rounded">
               <strong>Délka představení:</strong><br />
-              cca 55 min, bez přestávky
+              cca 50 min, bez přestávky
             </div>
           </div>
         </article>
@@ -73,6 +80,47 @@ breadcrumbs:
             class="img-fluid w-100 rounded"
             loading="eager"
           />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Content Photos -->
+<section class="pb-5">
+  <div class="container content-gutter">
+    <div class="content-photos content-photos-2">
+      <div class="row">
+        {% for photoNumber in [1, 2, 3, 4] %}
+        <div class="col-lg-6 col-md-6">
+          <div class="photo-item">
+            <img
+              src="images/pohadka-jak-andelicek-zachranil-vanoce-0{{ photoNumber }}.jpg"
+              alt="Jak andělíček zachránil Vánoce foto {{ photoNumber }}"
+              class="img-fluid rounded shadow"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="text-center mt-2">
+      <a class="btn btn-outline-primary" href="galerie.html#jak-andelicek-zachranil-vanoce">Další fotografie</a>
+    </div>
+  </div>
+</section>
+
+<!-- Quote Section (Motto) -->
+<section class="promote-section-wrapper">
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="quote-box no-bg">
+          <blockquote class="blockquote text-center mb-0">
+            <p class="mb-0">Nezapomeňte, že anděly můžete potkat i tam, kde byste to vůbec nečekali.</p>
+          </blockquote>
         </div>
       </div>
     </div>
@@ -108,13 +156,47 @@ breadcrumbs:
         <div class="performance-info-circle circle-erben">
           <div class="performance-info-circle-content">
             <h4>Napsaly:</h4>
-            <p>Jarmila Vlčková, Jarmila Vlčková</p>
+            <p>Jarmila Vlčková, Pavlína Jurková</p>
 
             <h5>Hrají:</h5>
             <p>Pavlína Jurková</p>
             <p>Jarmila Vlčková</p>
             <p>Lukáš Jurek</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Quote Section -->
+<section class="promote-section-wrapper">
+  <div class="container-fluid p-0">
+    <div class="row g-0 align-items-stretch">
+      <div class="col-lg-6 order-lg-1 order-2">
+        <div class="promote-image">
+          <img
+            src="images/jak-andelicek-zachranil-vanoce-quote.png"
+            alt="Divadlo Láryfáry - Jak andělíček zachránil Vánoce"
+            class="img-fluid h-100 w-100"
+            style="object-fit: contain"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2 order-1">
+        <div class="promote-content d-flex flex-column h-100">
+          <div class="content-box p-5 flex-grow-1 d-flex flex-column justify-content-center"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="quote-box">
+          <blockquote class="blockquote text-center mb-0">
+            <p class="mb-0">Vánoční pohádka, ze které se na vás přenese kouzlo a tajemství Vánoc.</p>
+          </blockquote>
         </div>
       </div>
     </div>
